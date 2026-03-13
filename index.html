@@ -12,8 +12,7 @@
     --accent1: #e63946;
     --accent2: #f4a300;
     --accent3: #2d6a4f;
-    --muted: #6b6b7a;
-    --muted-dark: #4a4a58;
+    --muted: #4a4a58;
     --border: #c8c0b0;
     --light-bg: #ede8df;
   }
@@ -36,7 +35,7 @@
   .page {
     max-width: 940px;
     margin: 0 auto;
-    padding: 40px 48px 50px;
+    padding: 40px 48px 60px;
   }
 
   /* ── DOCUMENT CONTAINERS ── */
@@ -54,9 +53,7 @@
     pointer-events: auto;
     position: relative;
   }
-  #doc-wrapper {
-    position: relative;
-  }
+  #doc-wrapper { position: relative; }
 
   /* ── RIGHT SIDE SWITCHER ── */
   .switcher {
@@ -89,23 +86,13 @@
     color: var(--muted);
     position: relative;
   }
-  .switcher-tab:not(:last-child) {
-    border-bottom: 1px solid var(--border);
-  }
-  .switcher-tab:hover:not(.active) {
-    background: var(--light-bg);
-    color: var(--ink);
-  }
-  .switcher-tab.active {
-    background: var(--accent1);
-    color: white;
-  }
+  .switcher-tab:not(:last-child) { border-bottom: 1px solid var(--border); }
+  .switcher-tab:hover:not(.active) { background: var(--light-bg); color: var(--ink); }
+  .switcher-tab.active { background: var(--accent1); color: white; }
   .switcher-tab.active::before {
     content: '';
     position: absolute;
-    left: 0;
-    top: 0;
-    bottom: 0;
+    left: 0; top: 0; bottom: 0;
     width: 3px;
     background: var(--accent2);
   }
@@ -116,10 +103,7 @@
     transform: translateY(28px);
     transition: opacity 0.7s cubic-bezier(0.22,1,0.36,1), transform 0.7s cubic-bezier(0.22,1,0.36,1);
   }
-  .fade-in.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  .fade-in.visible { opacity: 1; transform: translateY(0); }
 
   /* ── FLOAT CARD ── */
   .float-card {
@@ -130,52 +114,20 @@
   .float-card:hover { transition: box-shadow 0.15s ease; }
 
   /* ── SHARED TYPOGRAPHY ── */
-  .pp {
-    font-size: 12.5px;
-    line-height: 1.9;
-    margin-bottom: 16px;
-    color: var(--ink);
-  }
+  .pp { font-size: 12.5px; line-height: 1.9; margin-bottom: 16px; color: var(--ink); }
   .pp:last-child { margin-bottom: 0; }
   .pp strong { font-weight: 600; }
 
-  .lbl {
-    font-size: 7.5px;
-    letter-spacing: 0.28em;
-    text-transform: uppercase;
-    color: var(--muted);
-    margin-bottom: 10px;
-  }
+  .lbl { font-size: 7.5px; letter-spacing: 0.28em; text-transform: uppercase; color: var(--muted); margin-bottom: 10px; }
 
-  .tag {
-    display: inline-block;
-    background: var(--ink);
-    color: var(--paper);
-    font-size: 8.5px;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    padding: 4px 9px;
-    border-radius: 2px;
-  }
+  .tag { display: inline-block; background: var(--ink); color: var(--paper); font-size: 8.5px; letter-spacing: 0.18em; text-transform: uppercase; padding: 4px 9px; border-radius: 2px; }
   .tag em { color: var(--accent2); font-style: normal; }
 
-  .mark {
-    background: var(--accent2);
-    color: var(--ink);
-    padding: 1px 4px;
-    font-family: 'Syne', sans-serif;
-    font-weight: 700;
-    font-size: 11px;
-  }
+  .mark { background: var(--accent2); color: var(--ink); padding: 1px 4px; font-family: 'Syne', sans-serif; font-weight: 700; font-size: 11px; }
 
-  .em-style {
-    font-family: 'Instrument Serif', serif;
-    font-style: italic;
-    font-size: 13.5px;
-    color: var(--muted-dark);
-  }
+  .em-style { font-family: 'Instrument Serif', serif; font-style: italic; font-size: 13.5px; color: var(--muted); }
 
-  /* ── HEADER ── */
+  /* ── ALIGNED HEADER (shared between both docs) ── */
   .header {
     display: grid;
     grid-template-columns: 1fr 260px;
@@ -186,11 +138,6 @@
     margin-bottom: 24px;
     position: relative;
   }
-  #doc-cover .header {
-    grid-template-columns: 1fr 220px;
-    padding-bottom: 32px;
-    margin-bottom: 36px;
-  }
   .name {
     font-family: 'Syne', sans-serif;
     font-weight: 800;
@@ -198,7 +145,6 @@
     line-height: 0.95;
     letter-spacing: -3px;
   }
-  #doc-cover .name { font-size: 58px; }
   .name span { color: var(--accent1); }
   .name-sub {
     font-size: 9px;
@@ -228,260 +174,90 @@
     pointer-events: none;
     transition: transform 0.3s ease-out;
   }
-  @keyframes subtlePulse {
-    0%, 100% { opacity: 0.6; }
-    50% { opacity: 0.35; }
-  }
+  @keyframes subtlePulse { 0%, 100% { opacity: 0.6; } 50% { opacity: 0.35; } }
   .watermark-bg { animation: subtlePulse 6s ease-in-out infinite; }
 
   /* ══════ CV-SPECIFIC STYLES ══════ */
+  .placeholder { color: var(--accent1); font-style: italic; opacity: 0.6; border-bottom: 1px dashed var(--accent1); }
 
-  .placeholder {
-    color: var(--accent1);
-    font-style: italic;
-    opacity: 0.6;
-    border-bottom: 1px dashed var(--accent1);
-  }
-
-  .section-row {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    margin: 24px 0 10px;
-  }
-  .section-badge {
-    font-family: 'Syne', sans-serif;
-    font-weight: 800;
-    font-size: 10px;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: white;
-    padding: 4px 9px;
-    border-radius: 2px;
-    flex-shrink: 0;
-  }
+  .section-row { display: flex; align-items: center; gap: 12px; margin: 24px 0 10px; }
+  .section-badge { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: white; padding: 4px 9px; border-radius: 2px; flex-shrink: 0; }
   .section-title { font-family: 'Instrument Serif', serif; font-style: italic; font-size: 18px; }
   .section-hr { flex: 1; height: 1px; background: var(--border); }
 
-  .cv-grid {
-    display: grid;
-    grid-template-columns: 200px 1fr;
-    gap: 1px;
-    background: var(--border);
-    border: 1px solid var(--border);
-    margin-bottom: 6px;
-  }
-  .cv-grid > div {
-    background: var(--paper);
-    padding: 10px 14px;
-  }
-  .cv-left {
-    font-size: 10px;
-    color: var(--muted);
-    line-height: 1.5;
-  }
-  .cv-left .period {
-    font-family: 'Syne', sans-serif;
-    font-weight: 700;
-    font-size: 10px;
-    color: var(--ink);
-    display: block;
-    margin-bottom: 2px;
-  }
+  .cv-grid { display: grid; grid-template-columns: 200px 1fr; gap: 1px; background: var(--border); border: 1px solid var(--border); margin-bottom: 6px; }
+  .cv-grid > div { background: var(--paper); padding: 10px 14px; }
+  .cv-left { font-size: 10px; color: var(--muted); line-height: 1.5; }
+  .cv-left .period { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 10px; color: var(--ink); display: block; margin-bottom: 2px; }
   .cv-left .location { font-size: 9px; color: var(--muted); }
   .cv-right { font-size: 11px; line-height: 1.65; color: var(--ink); }
-  .cv-right .entry-title {
-    font-family: 'Syne', sans-serif;
-    font-weight: 700;
-    font-size: 12px;
-    margin-bottom: 2px;
-    line-height: 1.3;
-  }
+  .cv-right .entry-title { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 12px; margin-bottom: 2px; line-height: 1.3; }
   .cv-right .entry-org { font-size: 10px; color: var(--muted); margin-bottom: 6px; }
   .cv-right .entry-desc { font-size: 10px; line-height: 1.5; color: var(--ink); }
-  .cv-right .entry-desc li {
-    margin-bottom: 1px;
-    margin-left: 12px;
-    list-style: none;
-    position: relative;
-    padding-left: 10px;
-  }
-  .cv-right .entry-desc li::before {
-    content: '\203A';
-    position: absolute;
-    left: 0;
-    color: var(--muted);
-  }
+  .cv-right .entry-desc li { margin-bottom: 1px; margin-left: 12px; list-style: none; position: relative; padding-left: 10px; }
+  .cv-right .entry-desc li::before { content: '\203A'; position: absolute; left: 0; color: var(--muted); }
 
-  .skills-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1px;
-    background: var(--border);
-    border: 1px solid var(--border);
-    margin: 6px 0;
-  }
+  .skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); margin: 6px 0; }
   #doc-cover .skills-grid { margin: 28px 0; }
   .sk-col { background: var(--paper); padding: 10px 12px; }
   #doc-cover .sk-col { padding: 18px 16px; }
-  .sk-label {
-    font-size: 8px; letter-spacing: 0.28em; text-transform: uppercase;
-    margin-bottom: 5px; padding-bottom: 4px; border-bottom: 1px solid var(--border);
-  }
+  .sk-label { font-size: 8px; letter-spacing: 0.28em; text-transform: uppercase; margin-bottom: 5px; padding-bottom: 4px; border-bottom: 1px solid var(--border); }
   #doc-cover .sk-label { margin-bottom: 10px; padding-bottom: 7px; }
-  .sk-item {
-    font-size: 9.5px; color: var(--ink); padding: 2px 0;
-    border-bottom: 1px solid var(--light-bg);
-    display: flex; align-items: flex-start; gap: 5px; line-height: 1.4;
-  }
+  .sk-item { font-size: 9.5px; color: var(--ink); padding: 2px 0; border-bottom: 1px solid var(--light-bg); display: flex; align-items: flex-start; gap: 5px; line-height: 1.4; }
   #doc-cover .sk-item { font-size: 10.5px; padding: 3px 0; }
   .sk-item::before { content: '\203A'; color: var(--muted); flex-shrink: 0; }
 
-  .compact-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1px;
-    background: var(--border);
-    border: 1px solid var(--border);
-    margin: 6px 0;
-  }
-  .compact-cell {
-    background: var(--paper);
-    padding: 8px 14px;
-    text-align: center;
-  }
-  .compact-cell .c-label {
-    font-family: 'Syne', sans-serif;
-    font-weight: 700;
-    font-size: 11px;
-    margin-bottom: 2px;
-  }
-  .compact-cell .c-level {
-    font-size: 9px;
-    color: var(--muted);
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-  }
+  .compact-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); margin: 6px 0; }
+  .compact-cell { background: var(--paper); padding: 8px 14px; text-align: center; }
+  .compact-cell .c-label { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 11px; margin-bottom: 2px; }
+  .compact-cell .c-level { font-size: 9px; color: var(--muted); letter-spacing: 0.1em; text-transform: uppercase; }
 
   .interests-row { display: flex; flex-wrap: wrap; gap: 6px; margin: 6px 0; }
-  .interest-tag {
-    background: var(--light-bg);
-    border: 1px solid var(--border);
-    padding: 4px 10px;
-    border-radius: 2px;
-    font-size: 9.5px;
-    color: var(--ink);
-  }
+  .interest-tag { background: var(--light-bg); border: 1px solid var(--border); padding: 4px 10px; border-radius: 2px; font-size: 9.5px; color: var(--ink); }
 
-  .contact-row {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1px;
-    background: var(--border);
-    border: 1px solid var(--border);
-    margin-bottom: 4px;
-  }
+  .contact-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); margin-bottom: 4px; }
   .contact-cell { background: var(--ink); padding: 8px 12px; text-align: center; }
-  .contact-cell .c-lbl {
-    font-size: 7px; letter-spacing: 0.2em; text-transform: uppercase;
-    color: rgba(244,239,229,0.4); margin-bottom: 3px;
-  }
+  .contact-cell .c-lbl { font-size: 7px; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(244,239,229,0.4); margin-bottom: 3px; }
   .contact-cell .c-val { font-size: 10px; color: var(--paper); line-height: 1.4; }
   .contact-cell .c-val a { color: var(--accent2); }
 
-  .soft-item {
-    font-size: 9.5px; color: var(--ink); padding: 5px 0;
-    border-bottom: 1px solid var(--border); line-height: 1.45;
-    display: flex; align-items: flex-start; gap: 6px;
-  }
+  .soft-item { font-size: 9.5px; color: var(--ink); padding: 5px 0; border-bottom: 1px solid var(--border); line-height: 1.45; display: flex; align-items: flex-start; gap: 6px; }
   .soft-item:last-child { border-bottom: none; }
-  .soft-item::before {
-    content: '\25C6'; color: var(--muted); font-size: 6px; flex-shrink: 0; margin-top: 3px;
-  }
+  .soft-item::before { content: '\25C6'; color: var(--muted); font-size: 6px; flex-shrink: 0; margin-top: 3px; }
 
-  .footer {
-    display: flex; justify-content: space-between; align-items: center;
-    margin-top: 28px; padding-top: 12px; border-top: 2.5px solid var(--ink);
-    font-size: 8.5px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted);
-  }
+  .footer { display: flex; justify-content: space-between; align-items: center; margin-top: 28px; padding-top: 12px; border-top: 2.5px solid var(--ink); font-size: 8.5px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); }
   #doc-cover .footer { margin-top: 44px; padding-top: 16px; }
 
   /* ══════ COVER LETTER-SPECIFIC STYLES ══════ */
-
-  .dest-row {
-    display: flex; justify-content: space-between; align-items: center;
-    margin-bottom: 48px; gap: 24px;
-  }
-  .dest-label { font-size: 9px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--muted-dark); margin-bottom: 3px; }
+  .dest-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; gap: 24px; }
+  .dest-label { font-size: 9px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--muted); margin-bottom: 3px; }
   .dest-name { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 16px; }
-  .dest-sub { font-size: 10.5px; color: var(--muted-dark); }
-  .obj-pill {
-    font-size: 8.5px; letter-spacing: 0.15em; text-transform: uppercase;
-    background: var(--ink); color: var(--paper); padding: 7px 13px;
-    border-radius: 2px; white-space: nowrap; flex-shrink: 0; cursor: default;
-  }
+  .dest-sub { font-size: 10.5px; color: var(--muted); }
+  .obj-pill { font-size: 8.5px; letter-spacing: 0.15em; text-transform: uppercase; background: var(--ink); color: var(--paper); padding: 7px 13px; border-radius: 2px; white-space: nowrap; flex-shrink: 0; cursor: default; }
   .obj-pill span { color: var(--accent2); }
 
-  .axe-row { display: flex; align-items: center; gap: 12px; margin: 48px 0 22px; }
-  .axe-badge {
-    font-family: 'Syne', sans-serif; font-weight: 800; font-size: 10px;
-    letter-spacing: 0.18em; text-transform: uppercase; color: white;
-    padding: 4px 9px; border-radius: 2px; flex-shrink: 0;
-  }
+  .axe-row { display: flex; align-items: center; gap: 12px; margin: 32px 0 22px; }
+  .axe-badge { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: white; padding: 4px 9px; border-radius: 2px; flex-shrink: 0; }
   .axe-title { font-family: 'Instrument Serif', serif; font-style: italic; font-size: 18px; }
   .axe-hr { flex: 1; height: 1px; background: var(--border); }
 
-  .pull {
-    border-left: 3px solid var(--accent1); padding-left: 16px; margin: 6px 0 22px;
-    font-family: 'Instrument Serif', serif; font-style: italic; font-size: 16px;
-    line-height: 1.55; color: var(--ink);
-  }
+  .pull { border-left: 3px solid var(--accent1); padding-left: 16px; margin: 6px 0 22px; font-family: 'Instrument Serif', serif; font-style: italic; font-size: 16px; line-height: 1.55; color: var(--ink); }
 
   .grid-text-right { display: grid; grid-template-columns: 1fr 220px; gap: 22px; margin-bottom: 8px; align-items: start; }
   .grid-text-left { display: grid; grid-template-columns: 220px 1fr; gap: 22px; margin-bottom: 8px; align-items: start; }
 
-  .aside-light {
-    background: var(--light-bg); border: 1px solid var(--border);
-    padding: 16px 18px; border-radius: 2px;
-  }
-  .aside-light .al-item {
-    display: flex; align-items: flex-start; gap: 7px; padding: 4px 0;
-    border-bottom: 1px solid var(--border); font-size: 10.5px; color: var(--ink); line-height: 1.4;
-  }
+  .aside-light { background: var(--light-bg); border: 1px solid var(--border); padding: 16px 18px; border-radius: 2px; }
+  .aside-light .al-item { display: flex; align-items: flex-start; gap: 7px; padding: 4px 0; border-bottom: 1px solid var(--border); font-size: 10.5px; color: var(--ink); line-height: 1.4; }
   .aside-light .al-item:last-child { border-bottom: none; }
   .aside-light .al-item .arrow { color: var(--accent1); flex-shrink: 0; font-size: 10px; }
 
-  .aside-dark {
-    background: var(--ink); color: var(--paper); padding: 16px 18px; border-radius: 2px;
-  }
-  .aside-dark .ac-title {
-    font-family: 'Syne', sans-serif; font-weight: 700; font-size: 13px;
-    margin-bottom: 8px; line-height: 1.2;
-  }
+  .aside-dark { background: var(--ink); color: var(--paper); padding: 16px 18px; border-radius: 2px; }
+  .aside-dark .ac-title { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 13px; margin-bottom: 8px; line-height: 1.2; }
   .aside-dark p { color: rgba(244,239,229,0.85); font-size: 10.5px; line-height: 1.6; margin: 0; }
 
-  .aside-green {
-    background: var(--accent3); color: var(--paper); padding: 16px 18px; border-radius: 2px;
-  }
-  .aside-green .ac-title {
-    font-family: 'Syne', sans-serif; font-weight: 700; font-size: 13px;
-    margin-bottom: 8px; line-height: 1.2;
-  }
-  .aside-green p { color: rgba(244,239,229,0.75); font-size: 10.5px; line-height: 1.6; margin: 0; }
-
-  .stats-dark {
-    background: var(--ink); border-radius: 2px; padding: 22px 24px;
-    margin: 28px 0; position: relative; overflow: hidden;
-  }
-  .stats-dark::after {
-    content: 'ESG'; position: absolute; right: -8px; bottom: -18px;
-    font-family: 'Syne', sans-serif; font-weight: 800; font-size: 90px;
-    color: rgba(255,255,255,0.03); letter-spacing: -4px; pointer-events: none;
-  }
-  .stats-row {
-    display: grid; grid-template-columns: repeat(3, 1fr) 1.4fr; gap: 1px;
-    background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.08); margin-bottom: 14px;
-  }
+  .stats-dark { background: var(--ink); border-radius: 2px; padding: 22px 24px; margin: 28px 0; position: relative; overflow: hidden; }
+  .stats-dark::after { content: 'ESG'; position: absolute; right: -8px; bottom: -18px; font-family: 'Syne', sans-serif; font-weight: 800; font-size: 90px; color: rgba(255,255,255,0.03); letter-spacing: -4px; pointer-events: none; }
+  .stats-row { display: grid; grid-template-columns: repeat(3, 1fr) 1.4fr; gap: 1px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.08); margin-bottom: 14px; }
   .sc { background: var(--ink); padding: 12px 8px; text-align: center; }
   .sc .n { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 20px; color: var(--accent1); line-height: 1; }
   .sc .u { font-size: 7.5px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(244,239,229,0.65); margin-top: 4px; line-height: 1.35; }
@@ -489,20 +265,11 @@
   .st { font-size: 8.5px; letter-spacing: 0.1em; text-transform: uppercase; border: 1px solid rgba(255,255,255,0.25); padding: 2px 7px; border-radius: 2px; color: rgba(244,239,229,0.7); }
   .st.live { border-color: var(--accent1); color: var(--accent1); }
 
-  .tl-block {
-    background: var(--light-bg); border: 1px solid var(--border);
-    padding: 20px 24px; margin: 28px 0; border-radius: 2px;
-  }
+  .tl-block { background: var(--light-bg); border: 1px solid var(--border); padding: 20px 24px; margin: 28px 0; border-radius: 2px; }
   .tl-items { display: grid; grid-template-columns: repeat(5, 1fr); position: relative; }
   .tl-items::before { content: ''; position: absolute; top: 13px; left: 5%; right: 5%; height: 1.5px; background: var(--border); }
   .tl-it { text-align: center; position: relative; z-index: 1; }
-  .tl-dot {
-    width: 26px; height: 26px; border-radius: 50%;
-    background: var(--paper); border: 2px solid var(--border);
-    margin: 0 auto 8px;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 8.5px; font-family: 'Syne', sans-serif; font-weight: 700; color: var(--muted);
-  }
+  .tl-dot { width: 26px; height: 26px; border-radius: 50%; background: var(--paper); border: 2px solid var(--border); margin: 0 auto 8px; display: flex; align-items: center; justify-content: center; font-size: 8.5px; font-family: 'Syne', sans-serif; font-weight: 700; color: var(--muted); }
   .tl-dot.r { background: var(--accent1); border-color: var(--accent1); color: white; }
   .tl-dot.gr { background: var(--border); border-color: var(--border); }
   .tl-dot.gn { background: var(--accent1); border-color: var(--accent1); color: white; }
@@ -523,36 +290,11 @@
   .map-light .map-match { color: var(--ink); }
   .map-light .map-match .arrow { color: var(--accent1); }
 
-  .uncertainty-box {
-    border: 1px dashed var(--border); padding: 16px 18px; border-radius: 2px;
-    margin: 14px 0; background: var(--paper);
-  }
-  .ub-item {
-    font-size: 10.5px; color: var(--ink); padding: 4px 0;
-    border-bottom: 1px solid var(--light-bg); display: flex; gap: 8px; line-height: 1.45;
-  }
-  .ub-item:last-child { border-bottom: none; }
-  .ub-item .q { color: var(--muted); flex-shrink: 0; font-size: 10px; }
+  .section-divider { display: flex; align-items: center; gap: 14px; margin: 28px 0 24px; }
+  .section-divider::before, .section-divider::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+  .section-divider .divider-label { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 8px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--muted); flex-shrink: 0; }
 
-  .section-divider {
-    display: flex; align-items: center; gap: 14px; margin: 28px 0 24px;
-  }
-  .section-divider::before,
-  .section-divider::after { content: ''; flex: 1; height: 1px; background: var(--border); }
-  .section-divider .divider-label {
-    font-family: 'Syne', sans-serif; font-weight: 700; font-size: 8px;
-    letter-spacing: 0.3em; text-transform: uppercase; color: var(--muted); flex-shrink: 0;
-  }
-
-  .closing {
-    display: grid; grid-template-columns: 1fr auto; gap: 40px;
-    align-items: end; margin-top: 44px; padding-top: 28px; border-top: 1px solid var(--border);
-  }
-  .closing-txt {
-    font-family: 'Instrument Serif', serif; font-style: italic; font-size: 14.5px;
-    line-height: 1.7; color: var(--muted-dark);
-  }
-  .closing-txt strong { color: var(--ink); font-style: normal; font-family: 'Syne', sans-serif; font-weight: 700; }
+  .closing { display: grid; grid-template-columns: 1fr auto; gap: 40px; align-items: end; margin-top: 44px; padding-top: 28px; border-top: 1px solid var(--border); }
   .sig { text-align: right; }
   .sig-name { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 20px; letter-spacing: -0.5px; }
   .sig-sub { font-size: 9.5px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); margin-top: 3px; }
@@ -573,13 +315,7 @@
   }
 
   @media (max-width: 768px) {
-    .switcher {
-      right: 8px;
-      top: auto;
-      bottom: 16px;
-      transform: none;
-      flex-direction: row;
-    }
+    .switcher { right: 8px; top: auto; bottom: 16px; transform: none; flex-direction: row; }
     .switcher-tab { padding: 10px 12px; font-size: 8px; }
     .switcher-tab:not(:last-child) { border-bottom: none; border-right: 1px solid var(--border); }
     .switcher-tab.active::before { left: 0; right: 0; top: 0; bottom: auto; width: auto; height: 3px; }
@@ -608,8 +344,8 @@
           <div class="name">Maxence<br><span>Laffont</span></div>
         </div>
         <div class="header-right">
-          <div><strong>IESEG School of Management</strong></div>
-          <div>Grande Ecole Programme — BA3</div>
+          <div><strong>IÉSEG School of Management</strong></div>
+          <div>Grande École Programme — BA3</div>
           <div style="color:var(--border); margin: 5px 0">────</div>
           <div>Founder · Core.AI Systems</div>
           <div class="tag">Target · <em>SIMS + DDMI · IT for Finance</em></div>
@@ -621,8 +357,8 @@
         <div class="contact-row">
           <div class="contact-cell">
             <div class="c-lbl">Emails</div>
-            <div class="c-val">maxence.laffont@ieseg.fr</div>
-            <div class="c-val">mlaffont@runcoreai.com</div>
+            <div class="c-val">maxence.laffont@gmail.com</div>
+            <div class="c-val">mlaffont@ieseg.fr</div>
           </div>
           <div class="contact-cell">
             <div class="c-lbl">Phone</div>
@@ -651,10 +387,10 @@
           <div class="cv-grid float-card">
             <div class="cv-left">
               <span class="period">2023 – present</span>
-              <span class="location">Paris–La Defense</span>
+              <span class="location">Paris–La Défense</span>
             </div>
             <div class="cv-right">
-              <div class="entry-title">IESEG School of Management — Grande Ecole Programme</div>
+              <div class="entry-title">IÉSEG School of Management — Grande École Programme</div>
               <div class="entry-org">Bachelor cycle (BA1–BA3) · PGE</div>
               <div class="entry-desc">
                 <li>Finance, entrepreneurship, macroeconomics</li>
@@ -684,8 +420,8 @@
               <span class="location">Meudon</span>
             </div>
             <div class="cv-right">
-              <div class="entry-title">Baccalaureat General — Mathematiques &amp; Physique-Chimie</div>
-              <div class="entry-org">Lycee Francois Rabelais</div>
+              <div class="entry-title">Baccalauréat Général — Mathématiques &amp; Physique-Chimie</div>
+              <div class="entry-org">Lycée François Rabelais</div>
               <div class="entry-desc">
                 <li>Obtained with <strong>mention Bien</strong></li>
               </div>
@@ -729,7 +465,7 @@
                 <li><strong><a href="https://runcoreai.com" target="_blank">Core.AI</a></strong> — AI image/video generation platform. Fully built, suspended Oct. 2025</li>
                 <li><strong><a href="https://esg-v0-1.vercel.app" target="_blank">Core.AI ESG</a></strong> — B2B ESG data platform for asset managers. Deployed at Philippe Hottinguer Gestion. Launch June 2026</li>
                 <li>900 companies covered · 150 KPIs / company / year</li>
-                <li>Stack: Python, Playwright, PostgreSQL, Supabase, Next.js, Claude API, Gemini</li>
+                <li>Stack: Python, PostgreSQL, Supabase, Next.js, Claude API, Gemini</li>
               </div>
             </div>
           </div>
@@ -756,7 +492,7 @@
           <div class="cv-grid float-card" style="grid-template-columns: 1fr;">
             <div class="cv-right">
               <div class="entry-title">IT Infrastructure &amp; Cloud Support</div>
-              <div class="entry-org">Madeo · Jan. – June 2023 · Ile-de-France</div>
+              <div class="entry-org">Madeo · Jan. – June 2023 · Île-de-France</div>
               <div class="entry-desc">
                 <li>Server maintenance, on-site client support, cloud infra</li>
               </div>
@@ -797,18 +533,19 @@
           <div class="sk-col float-card">
             <div class="sk-label" style="color:var(--accent1)">Stack &amp; tools</div>
             <div class="sk-item">Next.js / React / TypeScript</div>
-            <div class="sk-item">Python · scraping · Playwright</div>
+            <div class="sk-item">Python · scraping</div>
             <div class="sk-item">PostgreSQL / Supabase</div>
             <div class="sk-item">Autonomous AI agents · agent orchestration</div>
             <div class="sk-item">Claude Code · VS Code · Claude API · Gemini</div>
             <div class="sk-item">GPU infra · vast.ai · AMD EPYC servers</div>
+            <div class="sk-item">C++ · Arduino</div>
             <div class="sk-item">Git · GitHub</div>
           </div>
           <div class="sk-col float-card">
             <div class="sk-label" style="color:var(--accent2)">ESG &amp; Finance</div>
             <div class="sk-item">CSRD · SFDR · ESG reporting frameworks</div>
             <div class="sk-item">KPI extraction · complex data consolidation</div>
-            <div class="sk-item">Euronext &amp; AMF BDIF data pipelines</div>
+            <div class="sk-item">Euronext data pipelines</div>
             <div class="sk-item">Excel · IBM SPSS</div>
             <div class="sk-item">B2B SaaS architecture &amp; pricing</div>
           </div>
@@ -817,7 +554,7 @@
             <div class="sk-item">Server hardware (EPYC SP5, GPU racks)</div>
             <div class="sk-item">Cloud deployment · Vercel · Hetzner · Supabase</div>
             <div class="sk-item">SaaS full-stack: auth, billing, API keys, data selling with own API</div>
-            <div class="sk-item">Stripe - Paypal integration</div>
+            <div class="sk-item">Stripe · PayPal integration</div>
           </div>
         </div>
       </div>
@@ -857,7 +594,7 @@
       </div>
 
       <div class="footer fade-in" data-delay="0.2">
-        <span>IESEG · Core.AI Systems</span>
+        <span>IÉSEG · Core.AI Systems</span>
         <span>March 2026</span>
       </div>
 
@@ -868,7 +605,7 @@
   <!-- ══════ COVER LETTER DOCUMENT ══════ -->
   <!-- ══════════════════════════════════════════════════════ -->
   <div id="doc-cover" class="doc-container">
-    <div class="page" style="padding: 56px 48px 80px;">
+    <div class="page">
 
       <header class="header fade-in">
         <div>
@@ -876,18 +613,18 @@
           <div class="name">Maxence<br><span>Laffont</span></div>
         </div>
         <div class="header-right">
-          <div><strong>IESEG School of Management</strong></div>
-          <div>Grande Ecole Programme — BA3</div>
+          <div><strong>IÉSEG School of Management</strong></div>
+          <div>Grande École Programme — BA3</div>
           <div style="color:var(--border); margin: 5px 0">────</div>
           <div>Founder · Core.AI Systems</div>
         </div>
-        <div class="watermark-bg" data-watermark>EFREI</div>
+        <div class="watermark-bg" data-watermark>Cover Letter</div>
       </header>
 
       <div class="dest-row fade-in" data-delay="0.1">
         <div>
           <div class="dest-label">To the attention of</div>
-          <div class="dest-name">Admissions Committee — IESEG &amp; EFREI Paris</div>
+          <div class="dest-name">Admissions Committee — IÉSEG &amp; EFREI Paris</div>
           <div class="dest-sub">SIMS &amp; DDMI Programme</div>
         </div>
         <div style="text-align:right;">
@@ -896,7 +633,7 @@
         </div>
       </div>
 
-      <div class="fade-in" data-delay="0.1" style="border-left:3px solid var(--accent1); padding-left:16px; margin:28px 0 24px;">
+      <div class="fade-in" data-delay="0.1" style="border-left:3px solid var(--accent1); padding-left:16px; margin:14px 0 18px;">
         <p class="pp" style="font-family:'Instrument Serif',serif; font-style:italic; font-size:16px; color:var(--ink); margin-bottom:0; line-height:1.55;">This application follows a simple logic: <strong style="font-family:'Syne',sans-serif; font-style:normal; font-size:13px;">where I come from</strong>, <strong style="font-family:'Syne',sans-serif; font-style:normal; font-size:13px;">what I'm aiming for and what I still need to learn</strong>, and <strong style="font-family:'Syne',sans-serif; font-style:normal; font-size:13px;">why the SIMS–DDMI makes sense as a next step</strong>.</p>
       </div>
 
@@ -907,22 +644,17 @@
         <div class="axe-hr"></div>
       </div>
 
-      <div class="pull fade-in" data-delay="0.2">
-        In 2022, I was accepted at both EFREI and ESTACA.<br>
-        I chose ESTACA. It didn't work out — and that taught me something.
-      </div>
-
       <div class="grid-text-right">
         <div class="fade-in" data-delay="0.25">
-          <p class="pp">After realising that aeronautics engineering — with its focus on physics and mechanics — wasn't for me, I joined <strong>Madeo</strong>, a small company specializing in cloud and IT infrastructure, where I handled server maintenance and on-site client support. It taught me what real infrastructure looks like in practice: hardware that fails, clients that need answers now, systems that have to stay up.</p>
-          <p class="pp">In 2023, I enrolled at <strong>IESEG</strong> — drawn by finance, entrepreneurship, and macroeconomics. Two years later, during my internship at <strong>Philippe Hottinguer Gestion</strong> (May–August 2025) — a Parisian wealth management firm — I worked as a private fund management intern. The teams were navigating increasing regulatory obligations (<strong>CSRD, SFDR</strong>) with extra-financial data scattered across PDFs, reports, and heterogeneous formats. I started building the first tools to assess what was technically feasible.</p>
+          <p class="pp">In 2022, I was accepted at both EFREI and ESTACA. After realising that aeronautics engineering — with its focus on physics and mechanics — wasn't for me, I joined <strong>Madeo</strong>, a small company specializing in cloud and IT infrastructure, where I handled server maintenance and on-site client support. It taught me what real infrastructure looks like in practice: hardware that fails, clients that need answers now, systems that have to stay up.</p>
+          <p class="pp">In 2023, I enrolled at <strong>IÉSEG</strong> — drawn by finance, entrepreneurship, and macroeconomics. Two years later, during my internship at <strong>Philippe Hottinguer Gestion</strong> (May–August 2025) — a Parisian wealth management firm — I worked as a private fund management intern. The teams were navigating increasing regulatory obligations (<strong>CSRD, SFDR</strong>) with extra-financial data scattered across PDFs, reports, and heterogeneous formats. I started building the first tools to assess what was technically feasible.</p>
         </div>
         <div class="fade-in" data-delay="0.3">
           <div class="aside-light float-card">
             <div class="lbl">Actual path</div>
             <div class="al-item"><span class="arrow">→</span> ESTACA + EFREI accepted — 2022</div>
             <div class="al-item"><span class="arrow">→</span> Madeo — IT infra &amp; cloud</div>
-            <div class="al-item"><span class="arrow">→</span> IESEG Grande Ecole — 2023</div>
+            <div class="al-item"><span class="arrow">→</span> IÉSEG Grande École — 2023</div>
             <div class="al-item"><span class="arrow">→</span> Philippe Hottinguer Gestion — internship May–Aug. 2025</div>
             <div class="al-item"><span class="arrow">→</span> GPU (AI hardware) rental via vast.ai — Feb. 2025</div>
             <div class="al-item"><span class="arrow">→</span> Core.AI Systems founded — May 2025</div>
@@ -932,7 +664,7 @@
       </div>
 
       <div class="fade-in" data-delay="0.15">
-        <p class="pp">At IESEG, what interested me most were the directly applicable subjects — management accounting, financial modelling in Excel, corporate finance. In group projects, I'd systematically anchor deliverables in real constraints: sourced figures, defensible assumptions, effective financial limits. It's a disposition I find in everything I build.</p>
+        <p class="pp">At IÉSEG, what interested me most were the directly applicable subjects — management accounting, financial modelling in Excel, corporate finance. In group projects, I'd systematically anchor deliverables in real constraints: sourced figures, defensible assumptions, effective financial limits. It's a disposition I find in everything I build.</p>
       </div>
 
       <div class="section-divider fade-in" data-delay="0.1">
@@ -974,7 +706,7 @@
       </div>
 
       <div class="fade-in" data-delay="0.1">
-        <p class="pp"><a href="https://esg-v0-1.vercel.app" target="_blank" style="font-weight:600">Core.AI ESG</a> collects raw extra-financial data — sustainability reports, AMF filings, Euronext publications — submits them page by page to multiple AI models, and extracts structured KPIs into a database built to scale. <strong>Current status:</strong> the platform is deployed internally at Philippe Hottinguer Gestion, where it is actively used and validated. Philippe Hottinguer Gestion has committed to supporting the go-to-market as a <strong>commercial partner</strong> — their sales team, institutional network, and data validation are part of the planned launch structure. <strong>Next step:</strong> commercial launch targeted for June 2026.</p>
+        <p class="pp"><a href="https://esg-v0-1.vercel.app" target="_blank" style="font-weight:600">Core.AI ESG</a> collects raw extra-financial data — sustainability reports, Euronext publications — submits them page by page to multiple AI models, and extracts structured KPIs into a database built to scale. <strong>Current status:</strong> the platform is deployed internally at Philippe Hottinguer Gestion, where it is actively used and validated. Philippe Hottinguer Gestion has committed to supporting the go-to-market as a <strong>commercial partner</strong> — their sales team, institutional network, and data validation are part of the planned launch structure. <strong>Next step:</strong> commercial launch targeted for June 2026.</p>
       </div>
 
       <!-- PLATFORM STATS -->
@@ -992,11 +724,10 @@
             </div>
           </div>
           <div class="stack-tags">
-            <span class="st">Python · Playwright</span>
+            <span class="st">Python</span>
             <span class="st">Supabase · PostgreSQL</span>
             <span class="st">Next.js · Vercel</span>
             <span class="st">Claude API · Gemini</span>
-            <span class="st">AMF BDIF</span>
             <span class="st">Euronext</span>
             <span class="st live">● deployed at Philippe Hottinguer Gestion</span>
           </div>
@@ -1023,7 +754,7 @@
             <div class="tl-it">
               <div class="tl-dot">IE</div>
               <div class="tl-yr">2023–25</div>
-              <div class="tl-ti">IESEG + Philippe Hottinguer Gestion</div>
+              <div class="tl-ti">IÉSEG + Philippe Hottinguer Gestion</div>
               <div class="tl-su">Internship May–Aug. 2025 · GPU rentals Feb. 2025 · SAS incorporated May 2025</div>
             </div>
             <div class="tl-it">
@@ -1043,7 +774,7 @@
       </div>
 
       <div class="fade-in" data-delay="0.1">
-        <p class="pp" style="font-family:'Instrument Serif',serif; font-style:italic; font-size:13.5px; color:var(--muted-dark); margin-top:8px;">These experiences gave me a hands-on profile. They also showed me the limits of learning by doing alone.</p>
+        <p class="pp" style="font-family:'Instrument Serif',serif; font-style:italic; font-size:13.5px; color:var(--muted); margin-top:8px;">These experiences gave me a hands-on profile. They also showed me the limits of learning by doing alone.</p>
       </div>
 
       <!-- AXE 2 -->
@@ -1062,17 +793,18 @@
           <div class="sk-col float-card">
             <div class="sk-label" style="color:var(--accent1)">Stack &amp; tools</div>
             <div class="sk-item">Next.js / React / TypeScript</div>
-            <div class="sk-item">Python · scraping · Playwright</div>
+            <div class="sk-item">Python · scraping</div>
             <div class="sk-item">PostgreSQL / Supabase / SaaS infra</div>
             <div class="sk-item">Autonomous AI agents · agent orchestration</div>
             <div class="sk-item">Claude Code · VS Code · Claude API · Gemini</div>
             <div class="sk-item">GPU (AI hardware) infra · EPYC servers</div>
+            <div class="sk-item">C++ · Arduino</div>
           </div>
           <div class="sk-col float-card">
             <div class="sk-label" style="color:var(--accent2)">ESG &amp; Finance</div>
             <div class="sk-item">CSRD · SFDR · ESG reporting frameworks</div>
             <div class="sk-item">KPI extraction · complex data consolidation</div>
-            <div class="sk-item">Euronext &amp; AMF BDIF data pipelines</div>
+            <div class="sk-item">Euronext data pipelines</div>
             <div class="sk-item">Excel · IBM SPSS</div>
           </div>
           <div class="sk-col float-card">
@@ -1097,10 +829,10 @@
       </div>
 
       <div class="fade-in" data-delay="0.15">
-        <p class="pp">I've been circling the same question since 2022 — how to build technical tools that meet concrete professional needs. EFREI was a possible answer back then; I made a different choice. Today, the reasons are more specific: the SIMS curriculum addresses the scientific and technical foundations I need, and the DDMI — if admitted after the SIMS — would let me earn both the <strong>IESEG Master in Management and the EFREI Engineering degree</strong> without leaving my current track.</p>
+        <p class="pp">I've been circling the same question since 2022 — how to build technical tools that meet concrete professional needs. EFREI was a possible answer back then; I made a different choice. Today, the reasons are more specific: the SIMS curriculum addresses the scientific and technical foundations I need, and the DDMI — if admitted after the SIMS — would let me earn both the <strong>IÉSEG Master in Management and the EFREI Engineering degree</strong> without leaving my current track.</p>
       </div>
       <div class="fade-in" data-delay="0.1">
-        <p class="pp">The DDMI engineering internship (September–December 2027) is where this converges concretely: I can approach it with a project already underway, specific technical questions to solve, and an active institutional partner. I'm also applying to the <strong>IESEG incubator</strong> with Core.AI Systems — access to both entrepreneurial ecosystems supports what I'm building.</p>
+        <p class="pp">The DDMI engineering internship (September–December 2027) is where this converges concretely: I can approach it with a project already underway, specific technical questions to solve, and an active institutional partner. I'm also applying to the <strong>IÉSEG incubator</strong> with Core.AI Systems — access to both entrepreneurial ecosystems supports what I'm building.</p>
       </div>
       <div class="fade-in" data-delay="0.1">
         <p class="pp">As a classmate, I'll be joining a cohort of management students discovering a new scientific and technical environment — just like me. What I can offer is simple: a genuine enthusiasm for the subjects we'll study, the habit of immediately trying to implement what I learn, and the willingness to exchange openly with teachers about how theory connects to practice. My side experiences may occasionally bring a different angle to group discussions — nothing more, but I hope it can be useful.</p>
@@ -1118,7 +850,7 @@
             </div>
             <div class="map-row">
               <div style="background:var(--ink)"><div class="map-module">Mathematics (10 ECTS)</div><div class="map-sub">Modelling · engineering tools · data analysis</div></div>
-              <div style="background:var(--ink)" class="map-match"><span class="arrow">↔</span>ESG scoring and KPI normalization require rigorous mathematical frameworks. I currently build these models intuitively — formal methods would make them auditable.</div>
+              <div style="background:var(--ink)" class="map-match"><span class="arrow">↔</span>Core.AI ESG already includes a custom scoring model editor for all users. Formal mathematical training would directly strengthen the rigour behind that tool.</div>
             </div>
             <div class="map-row">
               <div style="background:var(--ink)"><div class="map-module">Advanced Topics (4 ECTS)</div><div class="map-sub">AI · cybersecurity · information systems · finance</div></div>
@@ -1135,7 +867,7 @@
           <div class="map-table map-light" style="background:var(--border)">
             <div class="map-row" style="background:var(--border)">
               <div style="background:var(--light-bg)"><div class="map-module">Investment banking infrastructure</div><div class="map-sub">Transaction management · FinTech systems</div></div>
-              <div style="background:var(--light-bg)" class="map-match"><span class="arrow">↔</span>Understanding how financial institutions structure their data systems is directly relevant to designing a platform that integrates with asset managers' workflows.</div>
+              <div style="background:var(--light-bg)" class="map-match"><span class="arrow">↔</span>The platform already integrates with asset managers' workflows. Understanding how financial institutions structure their data systems at a formal level would deepen that integration.</div>
             </div>
             <div class="map-row" style="background:var(--border)">
               <div style="background:var(--light-bg)"><div class="map-module">Econometrics &amp; risk modelling</div><div class="map-sub">Monte Carlo · stress testing · portfolio optimization</div></div>
@@ -1161,14 +893,14 @@
         <div></div>
         <div class="sig">
           <div class="sig-name">Maxence Laffont</div>
-          <div class="sig-sub">BA3 PGE · IESEG School of Management</div>
+          <div class="sig-sub">BA3 PGE · IÉSEG School of Management</div>
           <div class="sig-co">Founder · Core.AI Systems</div>
           <div class="sig-dt">March 2026</div>
         </div>
       </div>
 
       <div class="footer fade-in" data-delay="0.2">
-        <span>IESEG <span class="dot dot-1"></span> Core.AI Systems</span>
+        <span>IÉSEG <span class="dot dot-1"></span> Core.AI Systems</span>
         <span>March 2026</span>
       </div>
 
@@ -1191,21 +923,12 @@ function switchDoc(targetId) {
   target.classList.add('active');
   tab.classList.add('active');
 
-  // Re-trigger fade-in animations
-  target.querySelectorAll('.fade-in').forEach(el => {
-    el.classList.remove('visible');
-  });
-  // Small delay to allow the container transition to start, then trigger fade-ins
+  target.querySelectorAll('.fade-in').forEach(el => el.classList.remove('visible'));
   requestAnimationFrame(() => {
-    requestAnimationFrame(() => {
-      initObserver(target);
-    });
+    requestAnimationFrame(() => { initObserver(target); });
   });
 
-  // Re-init 3D tilt for newly active doc
   initFloatCards(target);
-
-  // Scroll to top
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
@@ -1225,20 +948,16 @@ function initObserver(container) {
       }
     });
   }, { threshold: 0.1 });
-
   container.querySelectorAll('.fade-in:not(.visible)').forEach(el => observer.observe(el));
 }
 
-// Init fade-in for the active doc on load
 initObserver(document.getElementById('doc-cv'));
 
 // ── 3D tilt on hover for .float-card ──
 function initFloatCards(container) {
   container.querySelectorAll('.float-card').forEach(card => {
-    // Skip if already initialized
     if (card._tiltInit) return;
     card._tiltInit = true;
-
     let raf;
     card.addEventListener('mousemove', (e) => {
       cancelAnimationFrame(raf);
@@ -1260,7 +979,6 @@ function initFloatCards(container) {
   });
 }
 
-// Init float cards for both docs
 initFloatCards(document.getElementById('doc-cv'));
 initFloatCards(document.getElementById('doc-cover'));
 
