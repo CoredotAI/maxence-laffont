@@ -1,0 +1,880 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cover Letter — Maxence Laffont × EFREI</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:ital,wght@0,300;0,400;1,300&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #0a0a0f;
+    --paper: #f4efe5;
+    --accent1: #e63946;
+    --accent2: #f4a300;
+    --accent3: #2d6a4f;
+    --muted: #4a4a58;
+    --border: #c8c0b0;
+    --light-bg: #ede8df;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'DM Mono', monospace;
+    font-size: 12.5px;
+    line-height: 1.9;
+  }
+
+  ::selection { background: var(--accent2); color: var(--ink); }
+
+  a { color: var(--accent1); text-decoration: underline; text-underline-offset: 2px; cursor: pointer; }
+  a:hover { color: var(--accent2); }
+
+  .page {
+    max-width: 940px;
+    margin: 0 auto;
+    padding: 56px 48px 80px;
+  }
+
+  /* ── FADE IN ON SCROLL ── */
+  .fade-in {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.7s cubic-bezier(0.22,1,0.36,1), transform 0.7s cubic-bezier(0.22,1,0.36,1);
+  }
+  .fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ── FLOAT CARD ── */
+  .float-card {
+    transition: all 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: transform;
+    transform-style: preserve-3d;
+  }
+  .float-card:hover {
+    transition: box-shadow 0.15s ease;
+  }
+
+  /* ── TYPOGRAPHY ── */
+  .pp {
+    font-size: 12.5px;
+    line-height: 1.9;
+    margin-bottom: 16px;
+    color: var(--ink);
+  }
+  .pp:last-child { margin-bottom: 0; }
+  .pp strong { font-weight: 600; }
+
+  .em-style {
+    font-family: 'Instrument Serif', serif;
+    font-style: italic;
+    font-size: 13.5px;
+    color: var(--muted);
+  }
+
+  .mark {
+    background: var(--accent2);
+    color: var(--ink);
+    padding: 1px 4px;
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 11px;
+  }
+
+  .lbl {
+    font-size: 7.5px;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 10px;
+  }
+
+  .tag {
+    display: inline-block;
+    margin-top: 8px;
+    background: var(--ink);
+    color: var(--paper);
+    font-size: 8.5px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    padding: 4px 9px;
+    border-radius: 2px;
+  }
+  .tag em { color: var(--accent2); font-style: normal; }
+
+  /* ── HEADER ── */
+  .header {
+    display: grid;
+    grid-template-columns: 1fr 220px;
+    gap: 32px;
+    align-items: end;
+    border-bottom: 2.5px solid var(--ink);
+    padding-bottom: 32px;
+    margin-bottom: 36px;
+    position: relative;
+  }
+  .name {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 58px;
+    line-height: 0.95;
+    letter-spacing: -3px;
+  }
+  .name span { color: var(--accent1); }
+  .name-sub {
+    font-size: 9px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 10px;
+  }
+  .header-right {
+    text-align: right;
+    font-size: 10.5px;
+    line-height: 1.9;
+    color: var(--muted);
+    padding-bottom: 4px;
+  }
+  .header-right strong { color: var(--ink); font-weight: 500; }
+  .watermark-bg {
+    position: absolute;
+    bottom: -10px; left: 0;
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 90px;
+    line-height: 1;
+    color: transparent;
+    -webkit-text-stroke: 1px var(--border);
+    letter-spacing: -4px;
+    pointer-events: none;
+    transition: transform 0.3s ease-out;
+  }
+  @keyframes subtlePulse {
+    0%, 100% { opacity: 0.6; }
+    50% { opacity: 0.35; }
+  }
+  .watermark-bg { animation: subtlePulse 6s ease-in-out infinite; }
+
+  /* ── DESTINATION ── */
+  .dest-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 48px;
+    gap: 24px;
+  }
+  .dest-label { font-size: 9px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--muted); margin-bottom: 3px; }
+  .dest-name { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 16px; }
+  .dest-sub { font-size: 10.5px; color: var(--muted); }
+  .obj-pill {
+    font-size: 8.5px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    background: var(--ink);
+    color: var(--paper);
+    padding: 7px 13px;
+    border-radius: 2px;
+    white-space: nowrap;
+    flex-shrink: 0;
+    cursor: default;
+  }
+  .obj-pill span { color: var(--accent2); }
+
+  /* ── AXE HEADER ── */
+  .axe-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 48px 0 22px;
+  }
+  .axe-badge {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: white;
+    padding: 4px 9px;
+    border-radius: 2px;
+    flex-shrink: 0;
+  }
+  .axe-title { font-family: 'Instrument Serif', serif; font-style: italic; font-size: 18px; }
+  .axe-hr { flex: 1; height: 1px; background: var(--border); }
+
+  /* ── PULL QUOTE ── */
+  .pull {
+    border-left: 3px solid var(--accent1);
+    padding-left: 16px;
+    margin: 6px 0 22px;
+    font-family: 'Instrument Serif', serif;
+    font-style: italic;
+    font-size: 16px;
+    line-height: 1.55;
+    color: var(--ink);
+  }
+
+  /* ── GRID LAYOUTS ── */
+  .grid-text-right { display: grid; grid-template-columns: 1fr 220px; gap: 22px; margin-bottom: 8px; align-items: start; }
+  .grid-text-left { display: grid; grid-template-columns: 220px 1fr; gap: 22px; margin-bottom: 8px; align-items: start; }
+  .grid-text-right-w { display: grid; grid-template-columns: 1fr 230px; gap: 22px; margin-bottom: 8px; align-items: start; }
+  .grid-text-right-s { display: grid; grid-template-columns: 1fr 210px; gap: 22px; margin-bottom: 8px; align-items: start; }
+
+  /* ── ASIDE CARDS ── */
+  .aside-light {
+    background: var(--light-bg);
+    border: 1px solid var(--border);
+    padding: 16px 18px;
+    border-radius: 2px;
+  }
+  .aside-light .al-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 7px;
+    padding: 4px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 10.5px;
+    color: var(--ink);
+    line-height: 1.4;
+  }
+  .aside-light .al-item:last-child { border-bottom: none; }
+  .aside-light .al-item .arrow { color: var(--accent1); flex-shrink: 0; font-size: 10px; }
+
+  .aside-dark {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 16px 18px;
+    border-radius: 2px;
+  }
+  .aside-dark .ac-title {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    margin-bottom: 8px;
+    line-height: 1.2;
+  }
+  .aside-dark p { color: rgba(244,239,229,0.85); font-size: 10.5px; line-height: 1.6; margin: 0; }
+
+  .aside-green {
+    background: var(--accent3);
+    color: var(--paper);
+    padding: 16px 18px;
+    border-radius: 2px;
+  }
+  .aside-green .ac-title {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    margin-bottom: 8px;
+    line-height: 1.2;
+  }
+  .aside-green p { color: rgba(244,239,229,0.75); font-size: 10.5px; line-height: 1.6; margin: 0; }
+
+  .demo-card {
+    border: 2px solid var(--accent1);
+    padding: 14px 16px;
+    border-radius: 2px;
+  }
+  .demo-card a {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 11px;
+    color: var(--accent1);
+  }
+  .demo-card .dc-note { font-size: 9px; color: var(--muted); margin-top: 5px; }
+
+  /* ── CALLOUT ── */
+  .callout-box {
+    text-align: center;
+    padding: 16px 12px;
+    background: var(--light-bg);
+    border: 1px solid var(--border);
+    border-radius: 2px;
+  }
+  .callout-num {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 48px;
+    line-height: 1;
+    color: var(--accent1);
+    letter-spacing: -2px;
+  }
+  .callout-label {
+    font-size: 9px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-top: 2px;
+  }
+
+  /* ── HOBBY ── */
+  .hb {
+    background: var(--light-bg);
+    border: 1px solid var(--border);
+    padding: 8px 12px;
+    border-radius: 2px;
+    font-size: 10px;
+    color: var(--ink);
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    margin-top: 6px;
+  }
+  .hb-icon { font-size: 14px; flex-shrink: 0; }
+  .hb-text { line-height: 1.3; }
+  .hb-text span { display: block; font-size: 8.5px; color: var(--muted); margin-top: 1px; }
+
+  /* ── PLATFORM STATS ── */
+  .stats-dark {
+    background: var(--ink);
+    border-radius: 2px;
+    padding: 22px 24px;
+    margin: 28px 0;
+    position: relative;
+    overflow: hidden;
+  }
+  .stats-dark::after {
+    content: 'ESG';
+    position: absolute;
+    right: -8px; bottom: -18px;
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 90px;
+    color: rgba(255,255,255,0.03);
+    letter-spacing: -4px;
+    pointer-events: none;
+  }
+  .stats-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr) 1.4fr;
+    gap: 1px;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.08);
+    margin-bottom: 14px;
+  }
+  .sc { background: var(--ink); padding: 12px 8px; text-align: center; }
+  .sc .n { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 20px; color: var(--accent1); line-height: 1; }
+  .sc .u { font-size: 7.5px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(244,239,229,0.65); margin-top: 4px; line-height: 1.35; }
+  .stack-tags { display: flex; flex-wrap: wrap; gap: 5px; }
+  .st { font-size: 8.5px; letter-spacing: 0.1em; text-transform: uppercase; border: 1px solid rgba(255,255,255,0.25); padding: 2px 7px; border-radius: 2px; color: rgba(244,239,229,0.7); }
+  .st.live { border-color: var(--accent1); color: var(--accent1); }
+
+  /* ── SKILLS GRID ── */
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    margin: 28px 0;
+  }
+  .sk-col { background: var(--paper); padding: 18px 16px; }
+  .sk-label { font-size: 8px; letter-spacing: 0.28em; text-transform: uppercase; margin-bottom: 10px; padding-bottom: 7px; border-bottom: 1px solid var(--border); }
+  .sk-item {
+    font-size: 10.5px; color: var(--ink); padding: 3px 0;
+    border-bottom: 1px solid var(--light-bg);
+    display: flex; align-items: flex-start; gap: 5px; line-height: 1.4;
+  }
+  .sk-item::before { content: '›'; color: var(--muted); flex-shrink: 0; }
+
+  /* ── UNCERTAINTY BOX ── */
+  .uncertainty-box {
+    border: 1px dashed var(--border);
+    padding: 16px 18px;
+    border-radius: 2px;
+    margin: 14px 0;
+    background: var(--paper);
+  }
+  .ub-item {
+    font-size: 10.5px; color: var(--ink); padding: 4px 0;
+    border-bottom: 1px solid var(--light-bg);
+    display: flex; gap: 8px; line-height: 1.45;
+  }
+  .ub-item:last-child { border-bottom: none; }
+  .ub-item .q { color: var(--muted); flex-shrink: 0; font-size: 10px; }
+
+  /* ── TIMELINE ── */
+  .tl-block {
+    background: var(--light-bg);
+    border: 1px solid var(--border);
+    padding: 20px 24px;
+    margin: 28px 0;
+    border-radius: 2px;
+  }
+  .tl-items { display: grid; grid-template-columns: repeat(5, 1fr); position: relative; }
+  .tl-items::before { content: ''; position: absolute; top: 13px; left: 5%; right: 5%; height: 1.5px; background: var(--border); }
+  .tl-it { text-align: center; position: relative; z-index: 1; }
+  .tl-dot {
+    width: 26px; height: 26px; border-radius: 50%;
+    background: var(--paper); border: 2px solid var(--border);
+    margin: 0 auto 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 8.5px; font-family: 'Syne', sans-serif; font-weight: 700; color: var(--muted);
+  }
+  .tl-dot.r { background: var(--accent1); border-color: var(--accent1); color: white; }
+  .tl-dot.gr { background: var(--border); border-color: var(--border); }
+  .tl-dot.gn { background: var(--accent1); border-color: var(--accent1); color: white; }
+  .tl-dot.y { background: var(--accent2); border-color: var(--accent2); color: var(--ink); }
+  .tl-yr { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 9.5px; color: var(--muted); margin-bottom: 3px; }
+  .tl-ti { font-size: 9px; font-weight: 600; color: var(--ink); line-height: 1.35; }
+  .tl-su { font-size: 8px; color: var(--muted); margin-top: 2px; line-height: 1.35; }
+
+  /* ── MAPPING TABLE ── */
+  .map-table {
+    display: grid;
+    gap: 1px;
+    background: rgba(255,255,255,0.08);
+  }
+  .map-row {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 1px;
+  }
+  .map-row > div { padding: 12px 14px; }
+  .map-module { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 10.5px; color: var(--paper); line-height: 1.3; margin-bottom: 4px; }
+  .map-sub { font-size: 8.5px; color: rgba(244,239,229,0.6); line-height: 1.4; }
+  .map-match { font-size: 10.5px; color: rgba(244,239,229,0.85); line-height: 1.6; }
+  .map-match .arrow { color: var(--accent2); margin-right: 6px; font-size: 9px; }
+  .map-light .map-module { color: var(--ink); }
+  .map-light .map-sub { color: var(--muted); }
+  .map-light .map-match { color: var(--ink); }
+  .map-light .map-match .arrow { color: var(--accent1); }
+
+  .other-majors {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+  .other-major-card {
+    padding: 10px 14px;
+    background: var(--paper);
+    border: 1px solid var(--border);
+    border-radius: 2px;
+  }
+  .other-major-card .title { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 10px; color: var(--ink); margin-bottom: 4px; }
+  .other-major-card .note { font-size: 10px; color: var(--muted); line-height: 1.5; }
+
+  /* ── CLOSING ── */
+  .closing { display: grid; grid-template-columns: 1fr auto; gap: 40px; align-items: end; margin-top: 44px; padding-top: 28px; border-top: 1px solid var(--border); }
+  .closing-txt { font-family: 'Instrument Serif', serif; font-style: italic; font-size: 14.5px; line-height: 1.7; color: var(--muted); }
+  .closing-txt strong { color: var(--ink); font-style: normal; font-family: 'Syne', sans-serif; font-weight: 700; }
+  .sig { text-align: right; }
+  .sig-name { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 20px; letter-spacing: -0.5px; }
+  .sig-sub { font-size: 9.5px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); margin-top: 3px; }
+  .sig-co { font-size: 9.5px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent1); margin-top: 2px; }
+  .sig-dt { font-size: 9.5px; color: var(--muted); margin-top: 7px; }
+
+  /* ── FOOTER ── */
+  .footer { display: flex; justify-content: space-between; align-items: center; margin-top: 44px; padding-top: 16px; border-top: 2.5px solid var(--ink); font-size: 8.5px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); }
+  @keyframes dotPulse { 0%,100%{transform:scale(1)} 50%{transform:scale(1.4)} }
+  .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent1); display: inline-block; margin: 0 5px; vertical-align: middle; }
+  .dot-1 { animation: dotPulse 3s ease-in-out infinite; }
+  .dot-2 { animation: dotPulse 3s ease-in-out infinite 0.5s; }
+  .dot-3 { animation: dotPulse 3s ease-in-out infinite 1s; }
+
+  @media print {
+    body { background: white; }
+    .page { padding: 32px 40px 56px; }
+    .fade-in { opacity: 1 !important; transform: none !important; }
+  }
+
+  /* ── SECTION DIVIDER ── */
+  .section-divider {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin: 28px 0 24px;
+  }
+  .section-divider::before,
+  .section-divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+  .section-divider .divider-label {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 8px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--muted);
+    flex-shrink: 0;
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- ══════ HEADER ══════ -->
+  <header class="header fade-in">
+    <div>
+      <div class="name-sub">Application — SIMS + Manager / Engineer Double Degree</div>
+      <div class="name">Maxence<br><span>Laffont</span></div>
+    </div>
+    <div class="header-right">
+      <div><strong>IÉSEG School of Management</strong></div>
+      <div>Grande École Programme — BA3</div>
+      <div style="color:var(--border); margin: 5px 0">────</div>
+      <div>Founder · Core.AI Systems</div>
+    </div>
+    <div class="watermark-bg" id="watermark">EFREI</div>
+  </header>
+
+  <!-- ══════ DESTINATION ══════ -->
+  <div class="dest-row fade-in" data-delay="0.1">
+    <div>
+      <div class="dest-label">To the attention of</div>
+      <div class="dest-name">Admissions Committee — IÉSEG & EFREI Paris</div>
+      <div class="dest-sub">SIMS & DDMI Programme</div>
+    </div>
+    <div style="text-align:right;">
+      <div class="obj-pill float-card" style="margin-bottom:6px;">Application <span>SIMS + DDMI</span> · March 2026</div>
+      <div class="tag">Potential major · <em>IT for Finance</em></div>
+    </div>
+  </div>
+
+  <!-- ══════ READING FRAME ══════ -->
+  <div class="fade-in" data-delay="0.1" style="border-left:3px solid var(--accent1); padding-left:16px; margin:28px 0 24px;">
+    <p class="pp" style="font-family:'Instrument Serif',serif; font-style:italic; font-size:16px; color:var(--ink); margin-bottom:0; line-height:1.55;">This application follows a simple logic: <strong style="font-family:'Syne',sans-serif; font-style:normal; font-size:13px;">where I come from</strong>, <strong style="font-family:'Syne',sans-serif; font-style:normal; font-size:13px;">what I'm aiming for and what I still need to learn</strong>, and <strong style="font-family:'Syne',sans-serif; font-style:normal; font-size:13px;">why the SIMS–DDMI makes sense as a next step</strong>.</p>
+  </div>
+
+  <!-- ══════ AXE 1 ══════ -->
+  <div class="axe-row fade-in" data-delay="0.15">
+    <div class="axe-badge" style="background:var(--accent1)">01</div>
+    <div class="axe-title">Where I come from</div>
+    <div class="axe-hr"></div>
+  </div>
+
+  <div class="pull fade-in" data-delay="0.2">
+    In 2022, I was accepted at both EFREI and ESTACA.<br>
+    I chose ESTACA. It didn't work out — and that taught me something.
+  </div>
+
+  <!-- 2 paragraphs + sidebar -->
+  <div class="grid-text-right">
+    <div class="fade-in" data-delay="0.25">
+      <p class="pp">After realising that aeronautics engineering — with its focus on physics and mechanics — wasn't for me, I joined <strong>Madeo</strong>, a small company specializing in cloud and IT infrastructure, where I handled server maintenance and on-site client support. It taught me what real infrastructure looks like in practice: hardware that fails, clients that need answers now, systems that have to stay up.</p>
+      <p class="pp">In 2023, I enrolled at <strong>IÉSEG</strong> — drawn by finance, entrepreneurship, and macroeconomics. Two years later, during my internship at <strong>Philippe Hottinguer Gestion</strong> (May–August 2025) — a Parisian wealth management firm — I worked as a private fund management intern. The teams were navigating increasing regulatory obligations (<strong>CSRD, SFDR</strong>) with extra-financial data scattered across PDFs, reports, and heterogeneous formats. I started building the first tools to assess what was technically feasible.</p>
+    </div>
+    <div class="fade-in" data-delay="0.3">
+      <div class="aside-light float-card">
+        <div class="lbl">Actual path</div>
+        <div class="al-item"><span class="arrow">→</span> ESTACA + EFREI accepted — 2022</div>
+        <div class="al-item"><span class="arrow">→</span> Madeo — IT infra & cloud</div>
+        <div class="al-item"><span class="arrow">→</span> IÉSEG Grande École — 2023</div>
+        <div class="al-item"><span class="arrow">→</span> Philippe Hottinguer Gestion — internship May–Aug. 2025</div>
+        <div class="al-item"><span class="arrow">→</span> GPU (AI hardware) rental via vast.ai — Feb. 2025</div>
+        <div class="al-item"><span class="arrow">→</span> Core.AI Systems founded — May 2025</div>
+        <div class="al-item" style="border-bottom:none"><span class="arrow">→</span> <a href="https://esg-v0-1.vercel.app" target="_blank">Core.AI ESG</a> deployed internally at Philippe Hottinguer Gestion</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- IÉSEG — full width -->
+  <div class="fade-in" data-delay="0.15">
+    <p class="pp">At IÉSEG, what interested me most were the directly applicable subjects — management accounting, financial modelling in Excel, corporate finance. In group projects, I'd systematically anchor deliverables in real constraints: sourced figures, defensible assumptions, effective financial limits. It's a disposition I find in everything I build.</p>
+  </div>
+
+  <!-- ── DIVIDER: internship → entrepreneurship ── -->
+  <div class="section-divider fade-in" data-delay="0.1">
+    <span class="divider-label">From internship to venture</span>
+  </div>
+
+  <!-- Core.AI — Band 1: GPU/AI generation (card left, text right) -->
+  <div class="grid-text-left">
+    <div>
+      <div class="fade-in" data-delay="0.2">
+        <div class="aside-dark float-card">
+          <div class="lbl" style="color:var(--accent2)">Core.AI Systems — founding activity</div>
+          <div class="ac-title">GPU rental → <a href="https://runcoreai.com" target="_blank" style="color:var(--paper); text-decoration:underline; text-underline-offset:2px">Core.AI</a></div>
+          <p>AI image/video generation with fine-tuning, LoRA, and an integrated GPU marketplace. Fully built, platform suspended October 2025 — infra costs unviable at scale. GPU hosting via vast.ai continues. <a href="https://runcoreai.com" target="_blank" style="color:var(--accent2)">Core.AI ↗</a></p>
+        </div>
+      </div>
+    </div>
+    <div class="fade-in" data-delay="0.2">
+      <p class="pp">Core.AI Systems started with <strong>GPU (AI hardware) server rentals via vast.ai in February 2025</strong> — a direct continuation of what I'd learned at Madeo — and was formally incorporated in <strong>May 2025</strong>. From <strong>August 2025</strong>, I developed <strong><a href="https://runcoreai.com" target="_blank">Core.AI</a></strong>, an AI image and video generation platform meant to be the company's main product. By <strong>October 2025</strong>, the economics were clear: the platform's infrastructure costs didn't match the revenue it could generate short term. I suspended the platform — the GPU hosting activity via vast.ai, which started in February, still runs.</p>
+    </div>
+  </div>
+
+  <!-- ── DIVIDER: pivot decision ── -->
+  <div class="section-divider fade-in" data-delay="0.1">
+    <span class="divider-label">Strategic pivot — October 2025</span>
+  </div>
+
+  <!-- Core.AI — Band 2: ESG pivot (text left, card right) -->
+  <div class="grid-text-right" style="margin-top:8px;">
+    <div class="fade-in" data-delay="0.2">
+      <p class="pp">During the same period — towards the end of my internship, from <strong>August 2025</strong> — I started building a set of internal tools for <strong>Philippe Hottinguer Gestion</strong> to extract and consolidate extra-financial data from regulatory documents. The firm's teams were dealing with these obligations manually, and the data was scattered across PDFs and heterogeneous formats. When the <a href="https://runcoreai.com" target="_blank">Core.AI</a> platform was suspended, these already-proven tools became the priority. From <strong>October 2025</strong>, I began incorporating them into a standalone platform: <a href="https://esg-v0-1.vercel.app" target="_blank" style="font-weight:600">Core.AI ESG</a>.</p>
+    </div>
+    <div>
+      <div class="fade-in" data-delay="0.3">
+        <div class="aside-light float-card">
+          <div class="lbl" style="color:var(--accent1)">Current focus — Oct. 2025 pivot</div>
+          <a href="https://esg-v0-1.vercel.app" target="_blank" style="font-family:'Syne',sans-serif; font-weight:700; font-size:13px; margin-bottom:8px; line-height:1.2; display:block; color:var(--ink); text-decoration:underline; text-underline-offset:2px">Core.AI ESG</a>
+          <p style="font-size:10.5px; line-height:1.6; margin:0; color:var(--ink)">Internal ESG tools → commercial B2B platform. Deployed internally at Philippe Hottinguer Gestion since late 2025. Commercial launch targeted for June 2026.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Partnership — full width -->
+  <div class="fade-in" data-delay="0.1">
+    <p class="pp"><a href="https://esg-v0-1.vercel.app" target="_blank" style="font-weight:600">Core.AI ESG</a> collects raw extra-financial data — sustainability reports, AMF filings, Euronext publications — submits them page by page to multiple AI models, and extracts structured KPIs into a database built to scale. <strong>Current status:</strong> the platform is deployed internally at Philippe Hottinguer Gestion, where it is actively used and validated. Philippe Hottinguer Gestion has committed to supporting the go-to-market as a <strong>commercial partner</strong> — their sales team, institutional network, and data validation are part of the planned launch structure. <strong>Next step:</strong> commercial launch targeted for June 2026.</p>
+  </div>
+
+  <!-- ══════ PLATFORM STATS (ESG only) ══════ -->
+  <div class="fade-in" data-delay="0.1">
+    <div class="stats-dark float-card">
+      <div class="lbl" style="color:var(--accent2); margin-bottom:16px"><a href="https://esg-v0-1.vercel.app" target="_blank" style="color:var(--accent2)">Core.AI ESG</a> — Core.AI Systems × Philippe Hottinguer Gestion</div>
+      <div class="stats-row" style="grid-template-columns: repeat(2, 1fr) 1.2fr 1.2fr;">
+        <div class="sc"><div class="n">900</div><div class="u">European listed<br>companies covered</div></div>
+        <div class="sc"><div class="n">150</div><div class="u">extra-financial KPIs<br>/ company / year</div></div>
+        <div class="sc" style="border-left:1px solid rgba(255,255,255,0.08)"><div style="font-size:7px; letter-spacing:0.15em; text-transform:uppercase; color:var(--muted); margin-bottom:4px;">Status</div><div style="font-size:10px; color:var(--paper); line-height:1.5;">Deployed internally at Philippe Hottinguer Gestion<br><span style="color:var(--accent2);">Public launch target: June 2026</span></div></div>
+        <div class="sc">
+          <div style="font-size:7px; letter-spacing:0.2em; text-transform:uppercase; color:var(--accent2); margin-bottom:6px;">Live demo — Core.AI ESG</div>
+          <a href="https://esg-v0-1.vercel.app" target="_blank" style="font-family:'Syne',sans-serif; font-weight:700; font-size:10px; color:white; text-decoration:underline; display:block; margin-bottom:4px">esg-v0-1.vercel.app</a>
+          <div style="font-size:8px; color:rgba(244,239,229,0.6)">Currently in internal use at Philippe Hottinguer Gestion</div>
+        </div>
+      </div>
+      <div class="stack-tags">
+        <span class="st">Python · Playwright</span>
+        <span class="st">Supabase · PostgreSQL</span>
+        <span class="st">Next.js · Vercel</span>
+        <span class="st">Claude API · Gemini</span>
+        <span class="st">AMF BDIF</span>
+        <span class="st">Euronext</span>
+        <span class="st live">● deployed at Philippe Hottinguer Gestion</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════ TIMELINE (closes Axe 1) ══════ -->
+  <div class="fade-in" data-delay="0.1">
+    <div class="tl-block float-card">
+      <div class="lbl" style="margin-bottom:18px">Timeline — as it actually happened</div>
+      <div class="tl-items">
+        <div class="tl-it">
+          <div class="tl-dot r">22</div>
+          <div class="tl-yr">2022</div>
+          <div class="tl-ti">ESTACA <span style="color:var(--accent1); font-size:8px; display:block;">(EFREI also accepted)</span></div>
+          <div class="tl-su">Engineering · didn't last</div>
+        </div>
+        <div class="tl-it">
+          <div class="tl-dot gr">M</div>
+          <div class="tl-yr">2022–23</div>
+          <div class="tl-ti">Madeo</div>
+          <div class="tl-su">IT infra · cloud · on-site support</div>
+        </div>
+        <div class="tl-it">
+          <div class="tl-dot">IE</div>
+          <div class="tl-yr">2023–25</div>
+          <div class="tl-ti">IÉSEG + Philippe Hottinguer Gestion</div>
+          <div class="tl-su">Internship May–Aug. 2025 · GPU rentals Feb. 2025 · SAS incorporated May 2025</div>
+        </div>
+        <div class="tl-it">
+          <div class="tl-dot gn">●</div>
+          <div class="tl-yr">Oct. 2025</div>
+          <div class="tl-ti">Strategic pivot</div>
+          <div class="tl-su"><a href="https://runcoreai.com" target="_blank" style="color:var(--muted); font-size:inherit">Core.AI</a> platform on hold · GPU hosting continues · ESG tools → B2B platform</div>
+        </div>
+        <div class="tl-it">
+          <div class="tl-dot y">→</div>
+          <div class="tl-yr">Jan. 2027</div>
+          <div class="tl-ti">SIMS → DDMI</div>
+          <div class="tl-su">IT for Finance · formal foundations</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Transition: Axe 1 → Axe 2 -->
+  <div class="fade-in" data-delay="0.1">
+    <p class="pp" style="font-family:'Instrument Serif',serif; font-style:italic; font-size:13.5px; color:var(--muted); margin-top:8px;">These experiences gave me a hands-on profile. They also showed me the limits of learning by doing alone.</p>
+  </div>
+
+  <!-- ══════ AXE 2 — OBJECTIVE & GAPS ══════ -->
+  <div class="axe-row fade-in" data-delay="0.1">
+    <div class="axe-badge" style="background:var(--accent2); color:var(--ink)">02</div>
+    <div class="axe-title">What I'm aiming for — and what I still need to learn</div>
+    <div class="axe-hr"></div>
+  </div>
+
+  <div class="fade-in" data-delay="0.1">
+    <p class="pp"><strong>The platform exists, it works, and it's deployed.</strong> But the ESG data market is competitive and demanding — asset managers expect institutional-grade rigour, not just functional tools. To go from a working product to a defensible one, I need to strengthen what's already there: scoring models that hold up under audit, data pipelines built on formal methods, and the ability to engage technical and regulatory stakeholders on their own terms.</p>
+  </div>
+
+  <!-- Skills grid — reduced: what I already have -->
+  <div class="fade-in" data-delay="0.1">
+    <div class="skills-grid">
+      <div class="sk-col float-card">
+        <div class="sk-label" style="color:var(--accent1)">Stack & tools</div>
+        <div class="sk-item">Next.js / React / TypeScript</div>
+        <div class="sk-item">Python · scraping · Playwright</div>
+        <div class="sk-item">PostgreSQL / Supabase / SaaS infra</div>
+        <div class="sk-item">Autonomous AI agents · agent orchestration</div>
+        <div class="sk-item">Claude Code · VS Code · Claude API · Gemini</div>
+        <div class="sk-item">GPU (AI hardware) infra · EPYC servers</div>
+      </div>
+      <div class="sk-col float-card">
+        <div class="sk-label" style="color:var(--accent2)">ESG & Finance</div>
+        <div class="sk-item">CSRD · SFDR · ESG reporting frameworks</div>
+        <div class="sk-item">KPI extraction · complex data consolidation</div>
+        <div class="sk-item">Euronext & AMF BDIF data pipelines</div>
+        <div class="sk-item">Excel · IBM SPSS</div>
+      </div>
+      <div class="sk-col float-card">
+        <div class="sk-label" style="color:var(--ink)">Entrepreneurship</div>
+        <div class="sk-item">Founder, Core.AI Systems (French SAS)</div>
+        <div class="sk-item">B2B pricing & go-to-market strategy</div>
+        <div class="sk-item">Partnership structuring with Philippe Hottinguer Gestion</div>
+        <div class="sk-item">Full-stack product — design to deploy</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="fade-in" data-delay="0.1">
+    <p class="pp">Everything above was self-taught — learned through building, tested in production, validated by an institutional partner. The stack works. What I want now is to take it further: formally explain and defend the choices behind it — with academic rigour and structured reasoning — so that what's already strong becomes best-in-class. The SIMS and DDMI address exactly this: the ability to make what I build not just functional, but <strong>auditable, publishable, and competitive</strong> at the highest level of the market.</p>
+  </div>
+
+  <!-- ══════ AXE 3 — WHY SIMS-DDMI ══════ -->
+  <div class="axe-row fade-in" data-delay="0.1">
+    <div class="axe-badge" style="background:var(--ink)">03</div>
+    <div class="axe-title">Why the SIMS–DDMI makes sense as a next step</div>
+    <div class="axe-hr"></div>
+  </div>
+
+  <div class="fade-in" data-delay="0.15">
+    <p class="pp">I've been circling the same question since 2022 — how to build technical tools that meet concrete professional needs. EFREI was a possible answer back then; I made a different choice. Today, the reasons are more specific: the SIMS curriculum addresses the scientific and technical foundations I need, and the DDMI — if admitted after the SIMS — would let me earn both the <strong>IÉSEG Master in Management and the EFREI Engineering degree</strong> without leaving my current track.</p>
+  </div>
+  <div class="fade-in" data-delay="0.1">
+    <p class="pp">The DDMI engineering internship (September–December 2027) is where this converges concretely: I can approach it with a project already underway, specific technical questions to solve, and an active institutional partner. I'm also applying to the <strong>IÉSEG incubator</strong> with Core.AI Systems — access to both entrepreneurial ecosystems supports what I'm building.</p>
+  </div>
+  <div class="fade-in" data-delay="0.1">
+    <p class="pp">As a classmate, I'll be joining a cohort of management students discovering a new scientific and technical environment — just like me. What I can offer is simple: a genuine enthusiasm for the subjects we'll study, the habit of immediately trying to implement what I learn, and the willingness to exchange openly with teachers about how theory connects to practice. My side experiences may occasionally bring a different angle to group discussions — nothing more, but I hope it can be useful.</p>
+  </div>
+
+  <!-- ══════ PROGRAMME MAPPING ══════ -->
+  <div class="fade-in" data-delay="0.1" style="margin-top:24px;">
+    <div class="float-card" style="background:var(--ink); border-radius:2px; padding:20px 22px; margin-bottom:12px">
+      <div style="font-family:'Syne',sans-serif; font-weight:700; font-size:12px; color:var(--paper); margin-bottom:4px;">How the SIMS maps to what I'm building</div>
+      <div class="lbl" style="color:var(--accent2); margin-bottom:14px">Scientific Immersion Semester</div>
+      <div class="map-table">
+        <div class="map-row">
+          <div style="background:var(--ink)"><div class="map-module">Computer Science (10 ECTS)</div><div class="map-sub">Web programming · databases · Python · OOP</div></div>
+          <div style="background:var(--ink)" class="map-match"><span class="arrow">↔</span>Core.AI's stack runs on Python + PostgreSQL + Next.js. Formal CS foundations will make my architecture decisions defensible in technical discussions.</div>
+        </div>
+        <div class="map-row">
+          <div style="background:var(--ink)"><div class="map-module">Mathematics (10 ECTS)</div><div class="map-sub">Modelling · engineering tools · data analysis</div></div>
+          <div style="background:var(--ink)" class="map-match"><span class="arrow">↔</span>ESG scoring and KPI normalization require rigorous mathematical frameworks. I currently build these models intuitively — formal methods would make them auditable.</div>
+        </div>
+        <div class="map-row">
+          <div style="background:var(--ink)"><div class="map-module">Advanced Topics (4 ECTS)</div><div class="map-sub">AI · cybersecurity · information systems · finance</div></div>
+          <div style="background:var(--ink)" class="map-match"><span class="arrow">↔</span>Core.AI sits at the intersection of AI and finance. Formal understanding of information systems bridges my practical experience with institutional credibility.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="fade-in" data-delay="0.15">
+    <div class="float-card" style="background:var(--light-bg); border:1px solid var(--border); border-radius:2px; padding:20px 22px; margin-bottom:12px">
+      <div style="font-family:'Syne',sans-serif; font-weight:700; font-size:12px; color:var(--ink); margin-bottom:4px;">How IT for Finance maps to what I'm building</div>
+      <div class="lbl" style="color:var(--accent1); margin-bottom:14px">DDMI Major</div>
+      <div class="map-table map-light" style="background:var(--border)">
+        <div class="map-row" style="background:var(--border)">
+          <div style="background:var(--light-bg)"><div class="map-module">Investment banking infrastructure</div><div class="map-sub">Transaction management · FinTech systems</div></div>
+          <div style="background:var(--light-bg)" class="map-match"><span class="arrow">↔</span>Understanding how financial institutions structure their data systems is directly relevant to designing a platform that integrates with asset managers' workflows.</div>
+        </div>
+        <div class="map-row" style="background:var(--border)">
+          <div style="background:var(--light-bg)"><div class="map-module">Econometrics & risk modelling</div><div class="map-sub">Monte Carlo · stress testing · portfolio optimization</div></div>
+          <div style="background:var(--light-bg)" class="map-match"><span class="arrow">↔</span>Core.AI's ESG scoring needs defensible statistical methods. These techniques are directly applicable to portfolio analysis and backtesting.</div>
+        </div>
+        <div class="map-row" style="background:var(--border)">
+          <div style="background:var(--light-bg)"><div class="map-module">Real-time analysis & algorithms</div><div class="map-sub">Execution · order management · predictions</div></div>
+          <div style="background:var(--light-bg)" class="map-match"><span class="arrow">↔</span>The platform already processes thousands of pages through AI pipelines. Formalizing algorithmic design will make the system faster and more reliable.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ══════ CLOSING ══════ -->
+  <div class="fade-in" data-delay="0.1">
+    <p class="pp" style="margin-top:28px;">If there is one thing that defines how I work, it is an iterative approach to everything. Whether it's entrepreneurship, 3D printing, CNC machining, or manufacturing PCBs from raw copper for analog synthesizer clones — I need to control the full chain. Circuits, casing, style, functions, data, consolidation, interpretation, analysis, UI, pricing, target market, feedback loop. I don't wait to understand everything before I start building — and I don't stop learning once something works. I am curious, persistent, and honest about what I don't know. I believe these are the right qualities to make the most of what the SIMS and the DDMI have to offer.</p>
+  </div>
+  <div class="fade-in" data-delay="0.1">
+    <p class="pp">I would like to sincerely thank the admissions committee for the time and attention given to this application. I am available for an interview at your convenience.</p>
+  </div>
+
+  <div class="closing fade-in" data-delay="0.15">
+    <div></div>
+    <div class="sig">
+      <div class="sig-name">Maxence Laffont</div>
+      <div class="sig-sub">BA3 PGE · IÉSEG School of Management</div>
+      <div class="sig-co">Founder · Core.AI Systems</div>
+      <div class="sig-dt">March 2026</div>
+    </div>
+  </div>
+
+  <!-- ══════ FOOTER ══════ -->
+  <div class="footer fade-in" data-delay="0.2">
+    <span>IÉSEG <span class="dot dot-1"></span> Core.AI Systems</span>
+    <span>March 2026</span>
+  </div>
+
+</div>
+
+<script>
+// ── Scroll fade-in ──
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const delay = entry.target.dataset.delay || 0;
+      entry.target.style.transitionDelay = delay + 's';
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+// ── 3D tilt on hover for .float-card ──
+document.querySelectorAll('.float-card').forEach(card => {
+  let raf;
+
+  card.addEventListener('mousemove', (e) => {
+    cancelAnimationFrame(raf);
+    raf = requestAnimationFrame(() => {
+      const rect = card.getBoundingClientRect();
+      const x = (e.clientX - rect.left) / rect.width - 0.5;
+      const y = (e.clientY - rect.top) / rect.height - 0.5;
+      const intensity = 10;
+      const lift = 6;
+      card.style.transform = `perspective(800px) rotateX(${-y * intensity}deg) rotateY(${x * intensity}deg) translateY(-${lift}px) scale(1.015)`;
+      card.style.boxShadow = `${-x * 15}px ${12 + y * 8}px 30px rgba(10,10,15,0.12), 0 2px 8px rgba(10,10,15,0.06)`;
+      card.style.transition = 'box-shadow 0.15s ease';
+    });
+  });
+
+  card.addEventListener('mouseleave', () => {
+    cancelAnimationFrame(raf);
+    card.style.transform = 'perspective(800px) rotateX(0deg) rotateY(0deg) translateY(0px) scale(1)';
+    card.style.boxShadow = '0 1px 3px rgba(0,0,0,0.06)';
+    card.style.transition = 'all 0.5s cubic-bezier(0.22, 1, 0.36, 1)';
+  });
+});
+
+// ── Parallax watermark ──
+const wm = document.getElementById('watermark');
+document.addEventListener('mousemove', (e) => {
+  const x = (e.clientX / window.innerWidth - 0.5) * 12;
+  const y = (e.clientY / window.innerHeight - 0.5) * 8;
+  wm.style.transform = `translate(${x}px, ${y}px)`;
+});
+</script>
+</body>
+</html>
