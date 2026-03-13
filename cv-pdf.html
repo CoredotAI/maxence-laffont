@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Maxence Laffont — Curriculum Vitae</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:ital,wght@0,300;0,400;1,300&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #0a0a0f;
+    --paper: #f4efe5;
+    --accent1: #e63946;
+    --accent2: #f4a300;
+    --accent3: #2d6a4f;
+    --muted: #4a4a58;
+    --border: #c8c0b0;
+    --light-bg: #ede8df;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'DM Mono', monospace;
+    font-size: 12.5px;
+    line-height: 1.9;
+  }
+
+  ::selection { background: var(--accent2); color: var(--ink); }
+
+  a { color: var(--accent1); text-decoration: underline; text-underline-offset: 2px; cursor: pointer; }
+  a:hover { color: var(--accent2); }
+
+  .page {
+    max-width: 940px;
+    margin: 0 auto;
+    padding: 40px 48px 60px;
+  }
+
+  .pp { font-size: 12.5px; line-height: 1.9; margin-bottom: 16px; color: var(--ink); }
+  .pp:last-child { margin-bottom: 0; }
+  .pp strong { font-weight: 600; }
+
+  .lbl { font-size: 7.5px; letter-spacing: 0.28em; text-transform: uppercase; color: var(--muted); margin-bottom: 10px; }
+
+  .tag { display: inline-block; background: var(--ink); color: var(--paper); font-size: 8.5px; letter-spacing: 0.18em; text-transform: uppercase; padding: 4px 9px; border-radius: 2px; }
+  .tag em { color: var(--accent2); font-style: normal; }
+
+  .header {
+    display: grid;
+    grid-template-columns: 1fr 260px;
+    gap: 32px;
+    align-items: end;
+    border-bottom: 2.5px solid var(--ink);
+    padding-bottom: 40px;
+    margin-bottom: 24px;
+    position: relative;
+  }
+  .name {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 50px;
+    line-height: 0.95;
+    letter-spacing: -3px;
+    margin-top: 12px;
+  }
+  .name span { color: var(--accent1); }
+  .name-sub {
+    font-size: 9px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 10px;
+  }
+  .header-right {
+    text-align: right;
+    font-size: 10.5px;
+    line-height: 1.9;
+    color: var(--muted);
+    padding-bottom: 4px;
+  }
+  .header-right strong { color: var(--ink); font-weight: 500; }
+  .watermark-bg {
+    position: absolute;
+    bottom: 8px; left: 0;
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 90px;
+    line-height: 1;
+    color: transparent;
+    -webkit-text-stroke: 1px var(--border);
+    letter-spacing: -4px;
+    pointer-events: none;
+    opacity: 0.6;
+  }
+
+  .interactive-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: var(--ink);
+    color: var(--paper);
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 2px;
+    margin-bottom: 24px;
+    transition: background 0.2s;
+  }
+  .interactive-link:hover { background: var(--accent1); color: white; }
+  .interactive-link .arrow { font-size: 14px; }
+
+  .section-row { display: flex; align-items: center; gap: 12px; margin: 24px 0 10px; }
+  .section-badge { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: white; padding: 4px 9px; border-radius: 2px; flex-shrink: 0; }
+  .section-title { font-family: 'Instrument Serif', serif; font-style: italic; font-size: 18px; }
+  .section-hr { flex: 1; height: 1px; background: var(--border); }
+
+  .cv-grid { display: grid; grid-template-columns: 200px 1fr; gap: 1px; background: var(--border); border: 1px solid var(--border); margin-bottom: 6px; }
+  .cv-grid > div { background: var(--paper); padding: 10px 14px; }
+  .cv-left { font-size: 10px; color: var(--muted); line-height: 1.5; }
+  .cv-left .period { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 10px; color: var(--ink); display: block; margin-bottom: 2px; }
+  .cv-left .location { font-size: 9px; color: var(--muted); }
+  .cv-right { font-size: 11px; line-height: 1.65; color: var(--ink); }
+  .cv-right .entry-title { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 12px; margin-bottom: 2px; line-height: 1.3; }
+  .cv-right .entry-org { font-size: 10px; color: var(--muted); margin-bottom: 6px; }
+  .cv-right .entry-desc { font-size: 10px; line-height: 1.5; color: var(--ink); }
+  .cv-right .entry-desc li { margin-bottom: 1px; margin-left: 12px; list-style: none; position: relative; padding-left: 10px; }
+  .cv-right .entry-desc li::before { content: '\203A'; position: absolute; left: 0; color: var(--muted); }
+
+  .skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); margin: 6px 0; }
+  .sk-col { background: var(--paper); padding: 10px 12px; }
+  .sk-label { font-size: 8px; letter-spacing: 0.28em; text-transform: uppercase; margin-bottom: 5px; padding-bottom: 4px; border-bottom: 1px solid var(--border); }
+  .sk-item { font-size: 9.5px; color: var(--ink); padding: 2px 0; border-bottom: 1px solid var(--light-bg); display: flex; align-items: flex-start; gap: 5px; line-height: 1.4; }
+  .sk-item::before { content: '\203A'; color: var(--muted); flex-shrink: 0; }
+
+  .compact-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); margin: 6px 0; }
+  .compact-cell { background: var(--paper); padding: 8px 14px; text-align: center; }
+  .compact-cell .c-label { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 11px; margin-bottom: 2px; }
+  .compact-cell .c-level { font-size: 9px; color: var(--muted); letter-spacing: 0.1em; text-transform: uppercase; }
+
+  .interests-row { display: flex; flex-wrap: wrap; gap: 6px; margin: 6px 0; }
+  .interest-tag { background: var(--light-bg); border: 1px solid var(--border); padding: 4px 10px; border-radius: 2px; font-size: 9.5px; color: var(--ink); }
+
+  .contact-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); margin-bottom: 4px; }
+  .contact-cell { background: var(--ink); padding: 8px 12px; text-align: center; }
+  .contact-cell .c-lbl { font-size: 7px; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(244,239,229,0.4); margin-bottom: 3px; }
+  .contact-cell .c-val { font-size: 10px; color: var(--paper); line-height: 1.4; }
+  .contact-cell .c-val a { color: var(--accent2); }
+
+  .soft-item { font-size: 9.5px; color: var(--ink); padding: 5px 0; border-bottom: 1px solid var(--border); line-height: 1.45; display: flex; align-items: flex-start; gap: 6px; }
+  .soft-item:last-child { border-bottom: none; }
+  .soft-item::before { content: '\25C6'; color: var(--muted); font-size: 6px; flex-shrink: 0; margin-top: 3px; }
+
+  .footer { display: flex; justify-content: space-between; align-items: center; margin-top: 28px; padding-top: 12px; border-top: 2.5px solid var(--ink); font-size: 8.5px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); }
+
+  @media print {
+    body { background: white; }
+    .page { padding: 32px 40px 56px; }
+    .interactive-link { display: none; }
+  }
+</style>
+</head>
+<body>
+  <div class="page">
+
+    <header class="header">
+      <div>
+        <div class="name-sub">Curriculum Vitae</div>
+        <div class="name">Maxence<br><span>Laffont</span></div>
+      </div>
+      <div class="header-right">
+        <div><strong>IÉSEG School of Management</strong></div>
+        <div>Grande École Programme — BA3</div>
+        <div style="color:var(--border); margin: 5px 0">────</div>
+        <div>Founder · Core.AI Systems</div>
+        <div class="tag">Target · <em>SIMS + DDMI · IT for Finance</em></div>
+      </div>
+      <div class="watermark-bg">CV</div>
+    </header>
+
+    <a href="https://maxence-laffont.vercel.app/" class="interactive-link" target="_blank">
+      <span class="arrow">→</span> View interactive version with cover letter
+    </a>
+
+    <div>
+      <div class="contact-row">
+        <div class="contact-cell">
+          <div class="c-lbl">Emails</div>
+          <div class="c-val">maxence.laffont@ieseg.fr</div>
+          <div class="c-val">mlaffont@runcoreai.com</div>
+        </div>
+        <div class="contact-cell">
+          <div class="c-lbl">Phone</div>
+          <div class="c-val">06 31 73 78 92</div>
+        </div>
+        <div class="contact-cell">
+          <div class="c-lbl">Location</div>
+          <div class="c-val">Meudon, Hauts-de-Seine, France</div>
+        </div>
+        <div class="contact-cell">
+          <div class="c-lbl">Date of birth</div>
+          <div class="c-val">01 / 01 / 2004</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- EDUCATION + SOFT SKILLS -->
+    <div style="display: grid; grid-template-columns: 1fr 240px; gap: 16px; align-items: start;">
+      <div>
+        <div class="section-row" style="margin-top:12px;">
+          <div class="section-badge" style="background:var(--accent1)">EDU</div>
+          <div class="section-title">Education</div>
+          <div class="section-hr"></div>
+        </div>
+
+        <div class="cv-grid">
+          <div class="cv-left">
+            <span class="period">2023 – present</span>
+            <span class="location">Paris–La Défense</span>
+          </div>
+          <div class="cv-right">
+            <div class="entry-title">IÉSEG School of Management — Grande École Programme</div>
+            <div class="entry-org">Bachelor cycle (BA1–BA3) · PGE</div>
+            <div class="entry-desc">
+              <li>Finance, entrepreneurship, macroeconomics</li>
+              <li>Corporate finance, management accounting, financial modelling</li>
+            </div>
+          </div>
+        </div>
+
+        <div class="cv-grid">
+          <div class="cv-left">
+            <span class="period">2022</span>
+            <span class="location">Montigny-le-Bretonneux</span>
+          </div>
+          <div class="cv-right">
+            <div class="entry-title">ESTACA — Engineering School</div>
+            <div class="entry-org">Integrated preparatory cycle</div>
+            <div class="entry-desc">
+              <li>I reoriented my academic path to business studies due to misalignment between aeronautic engineering and my objectives</li>
+              <li>Also accepted at EFREI in 2022</li>
+            </div>
+          </div>
+        </div>
+
+        <div class="cv-grid">
+          <div class="cv-left">
+            <span class="period">2019 – 2022</span>
+            <span class="location">Meudon</span>
+          </div>
+          <div class="cv-right">
+            <div class="entry-title">Baccalauréat Général — Mathématiques &amp; Physique-Chimie</div>
+            <div class="entry-org">Lycée François Rabelais</div>
+            <div class="entry-desc">
+              <li>Obtained with <strong>mention Bien</strong></li>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="section-row" style="margin-top:12px;">
+          <div class="section-badge" style="background:var(--ink); color:var(--paper)">SOFT</div>
+          <div class="section-title">Soft skills</div>
+          <div class="section-hr"></div>
+        </div>
+        <div style="border: 1px solid var(--border); border-radius: 2px; padding: 12px 14px; background: var(--light-bg);">
+          <div class="soft-item">Listening to client needs — then confronting them with real constraints</div>
+          <div class="soft-item">Surfacing contradictions between end-user requests and stated objectives (with subtlety)</div>
+          <div class="soft-item">Partnership building (Philippe Hottinguer Gestion: from 2021 hardware mission to 2025 commercial partner)</div>
+          <div class="soft-item">Teamwork &amp; collaborative iteration — group projects, co-development with institutional stakeholders</div>
+          <div class="soft-item">Translating technical decisions into non-technical words for partners understanding</div>
+          <div class="soft-item">Working autonomously under pressure</div>
+          <div class="soft-item">Learning by doing — then formalizing once it works</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ENTREPRENEURSHIP + EXPERIENCE -->
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; align-items: start;">
+      <div>
+        <div class="section-row">
+          <div class="section-badge" style="background:var(--ink)">VENTURE</div>
+          <div class="section-title">Entrepreneurship</div>
+          <div class="section-hr"></div>
+        </div>
+
+        <div class="cv-grid" style="grid-template-columns: 1fr;">
+          <div class="cv-right">
+            <div class="entry-title">Founder — <a href="https://esg-v0-1.vercel.app" target="_blank">Core.AI Systems</a> (French SAS)</div>
+            <div class="entry-org">May 2025 – present · Paris</div>
+            <div class="entry-desc">
+              <li><strong>GPU hosting</strong> via vast.ai from Feb. 2025 — founding activity, still active</li>
+              <li><strong><a href="https://runcoreai.com" target="_blank">Core.AI</a></strong> — AI image/video generation platform. Fully built, suspended Oct. 2025</li>
+              <li><strong><a href="https://esg-v0-1.vercel.app" target="_blank">Core.AI ESG</a></strong> — B2B ESG data platform for asset managers. Deployed at Philippe Hottinguer Gestion. Launch June 2026</li>
+              <li>900 companies covered · 150 KPIs / company / year</li>
+              <li>Stack: Python, PostgreSQL, Supabase, Next.js, Claude API, Gemini</li>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="section-row">
+          <div class="section-badge" style="background:var(--accent2); color:var(--ink)">EXP</div>
+          <div class="section-title">Professional experience</div>
+          <div class="section-hr"></div>
+        </div>
+
+        <div class="cv-grid" style="grid-template-columns: 1fr;">
+          <div class="cv-right">
+            <div class="entry-title">Private Fund Management Intern</div>
+            <div class="entry-org">Philippe Hottinguer Gestion · May – Aug. 2025 · Paris</div>
+            <div class="entry-desc">
+              <li>ESG Fund management sales intern</li>
+              <li>Identified ESG data gap → built first internal tools → origin of Core.AI ESG</li>
+            </div>
+          </div>
+        </div>
+
+        <div class="cv-grid" style="grid-template-columns: 1fr;">
+          <div class="cv-right">
+            <div class="entry-title">IT Infrastructure &amp; Cloud Support</div>
+            <div class="entry-org">Madeo · Jan. – June 2023 · Île-de-France</div>
+            <div class="entry-desc">
+              <li>Server maintenance, on-site client support, cloud infra</li>
+            </div>
+          </div>
+        </div>
+
+        <div class="cv-grid" style="grid-template-columns: 1fr;">
+          <div class="cv-right">
+            <div class="entry-title">IT Hardware Mission</div>
+            <div class="entry-org">Philippe Hottinguer Gestion · July 2021 · Paris</div>
+            <div class="entry-desc">
+              <li>Hardware upgrades — first contact with the firm</li>
+            </div>
+          </div>
+        </div>
+
+        <div class="cv-grid" style="grid-template-columns: 1fr;">
+          <div class="cv-right">
+            <div class="entry-title">UX/UI Design — Observation Internship</div>
+            <div class="entry-org">Brocelia · Feb. – Mar. 2020 · Neuilly-sur-Seine</div>
+            <div class="entry-desc">
+              <li>UX/UI design teams · report delivered as a website</li>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TECHNICAL SKILLS -->
+    <div class="section-row">
+      <div class="section-badge" style="background:var(--accent1)">TECH</div>
+      <div class="section-title">Technical skills</div>
+      <div class="section-hr"></div>
+    </div>
+
+    <div>
+      <div class="skills-grid">
+        <div class="sk-col">
+          <div class="sk-label" style="color:var(--accent1)">Stack &amp; tools</div>
+          <div class="sk-item">Next.js / React / TypeScript</div>
+          <div class="sk-item">Python · scraping</div>
+          <div class="sk-item">PostgreSQL / Supabase</div>
+          <div class="sk-item">Autonomous AI agents · agent orchestration</div>
+          <div class="sk-item">Claude Code · VS Code · Claude API · Gemini</div>
+          <div class="sk-item">GPU infra · vast.ai · AMD EPYC servers</div>
+          <div class="sk-item">C++ · Arduino</div>
+          <div class="sk-item">Git · GitHub</div>
+        </div>
+        <div class="sk-col">
+          <div class="sk-label" style="color:var(--accent2)">ESG &amp; Finance</div>
+          <div class="sk-item">CSRD · SFDR · ESG reporting frameworks</div>
+          <div class="sk-item">KPI extraction · complex data consolidation</div>
+          <div class="sk-item">Euronext data pipelines</div>
+          <div class="sk-item">Excel · IBM SPSS</div>
+          <div class="sk-item">B2B SaaS architecture &amp; pricing</div>
+        </div>
+        <div class="sk-col">
+          <div class="sk-label" style="color:var(--ink)">Deployment &amp; ops</div>
+          <div class="sk-item">Server hardware (EPYC SP5, GPU racks)</div>
+          <div class="sk-item">Cloud deployment · Vercel · Hetzner · Supabase</div>
+          <div class="sk-item">SaaS full-stack: auth, billing, API keys, data selling with own API</div>
+          <div class="sk-item">Stripe · PayPal integration</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- LANGUAGES & INTERESTS -->
+    <div class="section-row">
+      <div class="section-badge" style="background:var(--ink)">+</div>
+      <div class="section-title">Languages &amp; interests</div>
+      <div class="section-hr"></div>
+    </div>
+
+    <div>
+      <div class="compact-grid" style="margin:0 0 8px 0; grid-template-columns:repeat(6,1fr);">
+        <div class="compact-cell"><div class="c-label">French</div><div class="c-level">Native</div></div>
+        <div class="compact-cell"><div class="c-label">English</div><div class="c-level">Fluent</div></div>
+        <div class="compact-cell"><div class="c-label">Spanish</div><div class="c-level">Beginner</div></div>
+        <div class="compact-cell"><div class="c-label">Russian</div><div class="c-level">Beginner · 2025</div></div>
+        <div class="compact-cell"><div class="c-label">Latin</div><div class="c-level">School</div></div>
+        <div class="compact-cell"><div class="c-label">Greek</div><div class="c-level">School</div></div>
+      </div>
+      <div class="interests-row" style="margin:0;">
+        <div class="interest-tag">DIY CNC machining</div>
+        <div class="interest-tag">3D printing · carbon composites · high-temp nozzles</div>
+        <div class="interest-tag">PCB design &amp; chemical etching · KiCad · JLCPCB</div>
+        <div class="interest-tag">Analog synth clones · 70s low-noise circuits</div>
+        <div class="interest-tag">KSP RO · Flyout · aerodynamics sim</div>
+        <div class="interest-tag">DCS World · F-18</div>
+        <div class="interest-tag">Backpacking · Eastern Europe</div>
+        <div class="interest-tag">Brutalist architecture</div>
+        <div class="interest-tag">Drawing &amp; design</div>
+        <div class="interest-tag">Skateboard &amp; gym</div>
+      </div>
+    </div>
+
+    <div style="margin-top: 28px;">
+      <div class="lbl" style="text-align:center;">References available upon request</div>
+    </div>
+
+    <div class="footer">
+      <span>IÉSEG · Core.AI Systems</span>
+      <span>March 2026</span>
+    </div>
+
+  </div>
+</body>
+</html>
